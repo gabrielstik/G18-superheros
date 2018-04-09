@@ -85,9 +85,9 @@ gulp.task('app', () => {
 })
 
 gulp.task('apps', () => {
-  return gulp.src(`${config.src}apps/**/*.php`)
+  return gulp.src(`${config.src}app/**/*.php`)
     .pipe(gulp_plumber({errorHandler: gulp_notify.onError('Apps error:  <%= error.message %>')}))
-    .pipe(gulp.dest(`${config.dist}apps`))  
+    .pipe(gulp.dest(`${config.dist}app`))  
 })
 
 gulp.task('fonts', () => {
