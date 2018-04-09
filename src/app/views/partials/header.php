@@ -8,7 +8,10 @@
 </head>
 <body>
 <header>
-  <form action="/signout" method="post">
-    <button type="submit" name="sign-out"></button>
+  <? if (isset($_SESSION['username'])) { ?>
+  <div><?= $_SESSION['username'] ?></div>
+  <form action="/sign-out" method="post">
+    <button type="submit" name="sign-out">Se déconnecter</button>
   </form>
+  <? } ?>
 </header>
