@@ -15,6 +15,9 @@ function call($controller) {
       else if (isset($_SESSION['username'])) $controller->kill();
       else if (isset($_POST['sign-up'])) $controller->create_account($_POST['sign-up--username'], $_POST['sign-up--password'], $_POST['sign-up--password-confirm']);
       else $controller->show();
+    case 'leaderboard':
+      include './app/models/database.php';
+      $controller = new leaderboardController();
   }
 }
 
@@ -27,6 +30,9 @@ switch($page) {
     break;
   case 'sign':
     call('session');
+    break;
+  case 'leaderboard':
+    call('leaderboard');
     break;
   case 'signout':
     session_destroy();

@@ -20,9 +20,14 @@ class Db {
     $user = $query->fetch();
     return empty($user) ? true : false;
   }
-  public function create_account($user, $password) {
+  public function create_account($user, $password, $date) {
     $password = password_hash($password, PASSWORD_DEFAULT);
-    $exec = $this->pdo->prepare("INSERT INTO users (username, password) VALUES ('$user', '$password')");
+    $exec = $this->pdo->prepare("INSERT INTO users (username, password, creation_date) VALUES ('$user', '$password', '$date')");
     $exec->execute();
+  }
+  public function get_leaderboard() {
+    $query = $this->pdo->query("SELECT * FROM users");
+    $users = $query->fetchAll();
+    return $users;
   }
 }

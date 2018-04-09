@@ -5,7 +5,7 @@ class SessionController {
 
   public function show($sign = 'sign-in') {
     include './app/views/partials/header.php';
-    include './app/views/sign.php' ;
+    include './app/views/sign.php';
   }
 
   public function verify($user, $password) {
@@ -31,7 +31,7 @@ class SessionController {
       array_push($this->error, 'no_username');
     }
     else {
-      if (strlen($_POST['sign-up--username']) <= 6) {
+      if (strlen($_POST['sign-up--username']) <= 4) {
         array_push($this->error, 'short_username');
       }
     }
@@ -39,7 +39,7 @@ class SessionController {
       array_push($this->error, 'no_password');
     }
     else {
-      if (strlen($_POST['sign-up--username']) <= 6) {
+      if (strlen($_POST['sign-up--password']) <= 6) {
         array_push($this->error, 'short_password');
       }
     }
@@ -47,7 +47,7 @@ class SessionController {
       array_push($this->error, 'passwords_does_not_match');
     }
     if (empty($this->error)) {
-      if ($db->check_account($user)) $db->create_account($user, $password);
+      if ($db->check_account($user)) $db->create_account($user, $password, time());
       header('Location: /');
     }
     else $this->show('sign-up');

@@ -1,4 +1,5 @@
 <?
+
 define('DB_HOST','51.254.118.218');
 define('DB_PORT','3306');
 define('DB_NAME','heroes');
