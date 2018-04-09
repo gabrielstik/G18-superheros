@@ -4,6 +4,8 @@ class SignInController {
   public $error = array();
 
   function __construct() {
+    include './app/models/Db.php';
+    
     if (isset($_POST['sign-in'])) $this->verify($_POST['sign-in--username'], $_POST['sign-in--password']);
     else if (isset($_SESSION['username'])) $this->kill();
     else $this->disp();
@@ -16,8 +18,8 @@ class SignInController {
 
   public function verify($user, $password) {
     if (isset($_POST['sign-in--username'])) {
-      $db = new Db();
-      $actual_pw = $db->get_hashed_password($user);
+      $Db = new Db();
+      $actual_pw = $Db->get_hashed_password($user);
       if (!empty($actual_pw)) {
         if (password_verify($password, $actual_pw)) {
           $_SESSION['username'] = $user;

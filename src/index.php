@@ -9,16 +9,13 @@ function call($controller) {
 
   switch ($controller) {
     case 'sign-in':
-      include './app/models/Db.php';
       $controller = new SignInController();
       break;
     case 'sign-up':
-      include './app/models/Db.php';
       $controller = new SignUpController();
       break;
     case 'leaderboard':
-      include './app/models/Db.php';
-      $controller = new leaderboardController();
+      $controller = new LeaderboardController();
       break;
   }
 }

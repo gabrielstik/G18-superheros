@@ -4,6 +4,11 @@ class SignUpController {
   public $error = array();
 
   function __construct() {
+    global $images;
+
+    include './app/models/Db.php';
+    include './app/models/APIs.php';
+
     if (isset($_POST['sign-up'])) $this->create_account($_POST['sign-up--username'], $_POST['sign-up--password'], $_POST['sign-up--password-confirm'], $_POST['sign-up--alias']);
     else if (isset($_SESSION['username'])) $this->kill();
     else $this->disp();
@@ -15,7 +20,7 @@ class SignUpController {
   }
 
   public function create_account($user, $password, $confirm, $alias) {
-    $db = new Db();
+    $Db = new Db();
     if (!isset($_POST['sign-up--username'])) {
       array_push($this->error, 'no_username');
     }
@@ -45,7 +50,7 @@ class SignUpController {
     }
 
     if (empty($this->error)) {
-      if ($db->check_account($user)) $db->create_account($user, $password, time(), $alias);
+      if ($Db->check_account($user)) $Db->create_account($user, $password, time(), $alias);
       header('Location: /');
     }
     else $this->disp();

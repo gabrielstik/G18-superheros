@@ -1,7 +1,9 @@
 <?
 
-class leaderboardController {
+class LeaderboardController {
   function __construct() {
+    
+    include './app/models/Db.php';
     $db = new Db();
     $this->show($db->get_leaderboard());
   }
