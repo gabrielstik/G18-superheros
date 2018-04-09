@@ -1,0 +1,122 @@
+.boardGame{
+    perspective: 800px;
+    width: 1100px;
+    height: 600px;
+    position: relative;
+    background-color: brown;
+}
+
+/******** CARDS ******/
+
+.card{
+    width: 91px;
+    height: 128px; 
+    margin-right: 10px; 
+    transform-style: preserve-3d;
+    
+}
+
+.cardBack{
+    width: 91px;
+    height: 128px;  
+    position: absolute;
+    background-color: black;
+    transform: translateZ(-1px);
+}
+
+.cardFront{
+    width: 91px;
+    height: 128px;
+    position: absolute;
+    background-color: bisque;
+}
+
+.card__image{
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);  
+}
+
+
+/******** HAND *******/
+
+.boardGame .allyBoard .hand{
+    width: 60%;
+    height: 128px;
+    position: absolute;
+    left: 50%;
+    bottom: 2%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+
+/********Deck*****/
+
+.allyBoard .deck{
+    width: 91px;
+    height: 128px;
+    position: absolute;
+    right: 0px;
+    bottom: 100px;
+    background-color: blue;
+}
+
+.allyBoard .deck .card{
+    position: absolute;
+    transform: rotateX(180deg);
+
+}
+
+/********Field*******/
+
+.boardGame .allyBoard .field{
+    width: 46%;
+    height: 128px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(10%);
+    display: flex;
+
+}
+
+.field_slots{
+    width: 91px;
+    height: 128px; 
+    margin-right: 10px; 
+    background-color: blue;
+}
+
+
+/************************************/
+        /***Ennemy**/              
+/************************************/
+.boardGame .ennemyBoard .hand .card{
+    transform: rotateX(180deg);
+}
+
+
+.boardGame .ennemyBoard .hand{
+    width: 60%;
+    height: 128px;
+    position: absolute;
+    left: 50%;
+    top: 2%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.boardGame .ennemyBoard .field{
+    width: 46%;
+    height: 128px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-110%);
+    display: flex;
+
+}
+
+
