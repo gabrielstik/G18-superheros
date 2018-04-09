@@ -16,3 +16,6 @@
 echo '<pre style="font-size:12px">';
 print_r($sign);
 echo '</pre>';
+echo '<pre style="font-size:12px">';
+print_r($this->error);
+echo '</pre>';

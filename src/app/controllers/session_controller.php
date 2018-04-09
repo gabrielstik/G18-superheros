@@ -15,29 +15,42 @@ class SessionController {
       if (!empty($actual_pw)) {
         if (password_verify($password, $actual_pw)) {
           $_SESSION['username'] = $user;
-          header('Location: /');
+          header('Location: /a');
         }
-        else array_push($error, 'password_incorrect');
+        else array_push($this->error, 'password_incorrect');
       }
-      else array_push($error, 'user_does_not_exist');
+      else array_push($this->error, 'user_does_not_exist');
     }
-    else array_push($error, 'no_username');
+    else array_push($this->error, 'no_username');
     $this->show('sign-in');
   }
 
   public function create_account($user, $password, $confirm) {
     $db = new Db();
-    if (isset($_POST['sign-up--username'])) {
-      if (isset($_POST['sign-up--password'])) {
-        if (isset($_POST['sign-up--password-confirm'])) {
-          $db->create_account($user, $password);
-        }
-        else array_push($error, 'passwords_does_not_match');
-      }
-      else array_push($error, 'password_incorrect');
+    if (!isset($_POST['sign-up--username'])) {
+      array_push($this->error, 'no_username');
     }
-    else array_push($error, 'no_username');
-    $this->show('sign-up');
+    else {
+      if (strlen($_POST['sign-up--username']) <= 6) {
+        array_push($this->error, 'short_username');
+      }
+    }
+    if (!isset($_POST['sign-up--password'])) {
+      array_push($this->error, 'no_password');
+    }
+    else {
+      if (strlen($_POST['sign-up--username']) <= 6) {
+        array_push($this->error, 'short_password');
+      }
+    }
+    if (isset($_POST['sign-up--password-confirm']) && isset($_POST['sign-up--password-confirm']) && $_POST['sign-up--password-confirm'] != $_POST['sign-up--password']) {
+      array_push($this->error, 'passwords_does_not_match');
+    }
+    if (empty($this->error)) {
+      if ($db->check_account($user)) $db->create_account($user, $password);
+      header('Location: /');
+    }
+    else $this->show('sign-up');
   }
 
   public function kill() {

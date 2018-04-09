@@ -22,6 +22,7 @@ $page = isset($_GET['q']) ? $_GET['q'] : 'home';
 
 switch($page) {
   case 'home':
+    include './app/views/home.php';
     // call('apis');
     break;
   case 'sign':
