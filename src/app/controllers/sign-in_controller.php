@@ -3,6 +3,12 @@
 class SignInController {
   public $error = array();
 
+  function __construct() {
+    if (isset($_POST['sign-in'])) $this->verify($_POST['sign-in--username'], $_POST['sign-in--password']);
+    else if (isset($_SESSION['username'])) $this->kill();
+    else $this->disp();
+  }
+
   public function disp() {
     include './app/views/partials/header.php';
     include './app/views/sign-in.php';

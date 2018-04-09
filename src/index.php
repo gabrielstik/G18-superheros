@@ -11,18 +11,10 @@ function call($controller) {
     case 'sign-in':
       include './app/models/Db.php';
       $controller = new SignInController();
-      if (isset($_POST['sign-in'])) $controller->verify($_POST['sign-in--username'], $_POST['sign-in--password']);
-      else if (isset($_SESSION['username'])) $controller->kill();
-      else if (isset($_POST['sign-up'])) $controller->create_account($_POST['sign-up--username'], $_POST['sign-up--password'], $_POST['sign-up--password-confirm']);
-      else $controller->disp();
       break;
     case 'sign-up':
       include './app/models/Db.php';
-      $controller = new SignInController();
-      if (isset($_POST['sign-in'])) $controller->verify($_POST['sign-in--username'], $_POST['sign-in--password']);
-      else if (isset($_SESSION['username'])) $controller->kill();
-      else if (isset($_POST['sign-up'])) $controller->create_account($_POST['sign-up--username'], $_POST['sign-up--password'], $_POST['sign-up--password-confirm'], $_POST['sign-up--alias']);
-      else $controller->disp();
+      $controller = new SignUpController();
       break;
     case 'leaderboard':
       include './app/models/Db.php';

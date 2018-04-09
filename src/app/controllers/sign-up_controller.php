@@ -1,7 +1,13 @@
 <?
 
-class SignInController {
+class SignUpController {
   public $error = array();
+
+  function __construct() {
+    if (isset($_POST['sign-up'])) $this->create_account($_POST['sign-up--username'], $_POST['sign-up--password'], $_POST['sign-up--password-confirm'], $_POST['sign-up--alias']);
+    else if (isset($_SESSION['username'])) $this->kill();
+    else $this->disp();
+  }
 
   public function disp() {
     include './app/views/partials/header.php';
