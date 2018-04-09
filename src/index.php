@@ -15,9 +15,11 @@ function call($controller) {
       else if (isset($_SESSION['username'])) $controller->kill();
       else if (isset($_POST['sign-up'])) $controller->create_account($_POST['sign-up--username'], $_POST['sign-up--password'], $_POST['sign-up--password-confirm']);
       else $controller->show();
+      break;
     case 'leaderboard':
       include './app/models/database.php';
       $controller = new leaderboardController();
+      break;
   }
 }
 

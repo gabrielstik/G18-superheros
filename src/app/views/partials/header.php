@@ -8,5 +8,7 @@
 </head>
 <body>
 <header>
-  <a href="/signout" title="Se déconnecter">Se déconnecter</a>
+  <form action="/signout" method="post">
+    <button type="submit" name="sign-out"></button>
+  </form>
 </header>

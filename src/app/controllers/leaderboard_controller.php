@@ -7,6 +7,7 @@ class leaderboardController {
   }
 
   public function show($leaderboard) {
+    include './app/views/partials/header.php';
     include './app/views/leaderboard.php';
   }
 }
