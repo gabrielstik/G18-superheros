@@ -39,7 +39,7 @@ gulp.task('clean', () => {
 
 gulp.task('default', ['dev'])
 gulp.task('dev', ['watch'])
-gulp.task('prod', ['app', 'components', 'styles', 'vendor-styles', 'scripts', 'fonts', 'lib', 'images', 'apache'])
+gulp.task('prod', ['app', 'apps', 'styles', 'vendor-styles', 'scripts', 'fonts', 'lib', 'images', 'apache'])
 
 // SASS to SCSS, compress & prefix styles
 gulp.task('styles', () => {
@@ -84,10 +84,10 @@ gulp.task('app', () => {
     .pipe(gulp.dest(`${config.dist}`))  
 })
 
-gulp.task('components', () => {
-  return gulp.src(`${config.src}components/**/*.php`)
-    .pipe(gulp_plumber({errorHandler: gulp_notify.onError('Components error:  <%= error.message %>')}))
-    .pipe(gulp.dest(`${config.dist}components`))  
+gulp.task('apps', () => {
+  return gulp.src(`${config.src}apps/**/*.php`)
+    .pipe(gulp_plumber({errorHandler: gulp_notify.onError('Apps error:  <%= error.message %>')}))
+    .pipe(gulp.dest(`${config.dist}apps`))  
 })
 
 gulp.task('fonts', () => {
@@ -123,9 +123,9 @@ gulp.task('browsersync', () => {
 })
 
 // Watch tasks
-gulp.task('watch', ['app', 'components', 'styles', 'vendor-styles', 'scripts', 'fonts', 'lib', 'images', 'apache', 'browsersync'], () => {
+gulp.task('watch', ['app', 'apps', 'styles', 'vendor-styles', 'scripts', 'fonts', 'lib', 'images', 'apache', 'browsersync'], () => {
   gulp.watch(`${config.src}*.php`, ['app']).on('change', browserSync.reload)
-  gulp.watch(`${config.src}components/**/*.php`, ['components']).on('change', browserSync.reload)
+  gulp.watch(`${config.src}app/**/*.php`, ['apps']).on('change', browserSync.reload)
   gulp.watch(`${config.src}views/**/*.php`, ['views']).on('change', browserSync.reload)
   gulp.watch(`${config.src}actions/**/*.php`, ['actions']).on('change', browserSync.reload)
   gulp.watch([`${config.src}styles/**/*.scss`, `!${config.src}styles/vendor`], ['styles']).on('change', browserSync.reload)
