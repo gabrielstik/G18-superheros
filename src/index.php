@@ -8,6 +8,9 @@ function call($controller) {
   include './app/controllers/'.$controller.'_controller.php';
 
   switch ($controller) {
+    case 'home':
+      HomeController::disp();
+      break;
     case 'sign-in':
       $controller = new SignInController();
       break;
@@ -27,8 +30,7 @@ $page = isset($_GET['q']) ? $_GET['q'] : 'home';
 
 switch($page) {
   case 'home':
-    include './app/views/home.php';
-    // call('apis');
+    call('home');
     break;
   case 'sign-in':
     call('sign-in');
