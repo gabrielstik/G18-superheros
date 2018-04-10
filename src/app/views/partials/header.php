@@ -9,7 +9,10 @@
   <link rel="stylesheet" href="./assets/css/style.min.css">
 </head>
 <body>
-<header class="header">
+<header class="header flex flex_between">
+  <div class="header--logo">
+    
+  </div>
   <nav class="header--nav">
     <ul class="header--nav--list flex flex_between">
       <li class="header--nav--item">
@@ -29,10 +32,14 @@
       </li>
     </ul>
   </nav>
-  <? if (isset($_SESSION['username'])) { ?>
-  <div><?= $_SESSION['username'] ?></div>
-  <form action="/sign-out" method="post">
-    <button type="submit" name="sign-out">Se déconnecter</button>
-  </form>
-  <? } ?>
+  <div class="header--account">
+    <? if (isset($_SESSION['username'])) { ?>
+    <form class="flex flex_between" action="/sign-out" method="post">
+      <div class="header--account--username"><?= $_SESSION['username'] ?></div>
+      <button class="header--account--button" type="submit" name="sign-out">Se déconnecter</button>
+    </form>
+    <? } else { ?>
+    <a href="sign-in" class="header--account--button">Se connecter</a>
+    <? } ?>
+  </div>
 </header>
