@@ -9,6 +9,9 @@ class LeaderboardController {
   }
 
   public function show($leaderboard) {
+    echo '<pre style="font-size:12px">';
+    print_r($leaderboard);
+    echo '</pre>';
     include './app/views/partials/header.php';
     include './app/views/leaderboard.php';
   }
