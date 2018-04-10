@@ -4,8 +4,8 @@ class MatchesController {
 
   function __construct() {
     include './app/models/Db.php';
-    $db = new Db();
-    $matches = $db->get_in_progress_matches($_SESSION['user-id']);
+    $this->db = new Db();
+    $matches = $this->db->get_in_progress_matches($_SESSION['user-id']);
     $opponents = $this->get_opponents($matches);
 
     $this->disp($matches, $opponents);
@@ -15,7 +15,7 @@ class MatchesController {
     $opponents = array();
     foreach ($matches as $match) {
       $opponent = $match->player_1 == $_SESSION['user-id'] ? $match->player_2 : $match->player_1;
-      array_push($opponents, $opponent);
+      array_push($opponents, $this->db->get_alias($opponent));
     }
     return $opponents;
   }

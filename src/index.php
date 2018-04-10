@@ -45,10 +45,10 @@ switch($page) {
     call('leaderboard');
     break;
   case 'shop':
-    call('shop');
+    isset($_SESSION['username']) ? call('shop') : header('Location: /'.$_GET['q']);
     break;
   case 'matches':
-    call('matches');
+    isset($_SESSION['username']) ? call('matches') : header('Location: /'.$_GET['q']);
     break;
   case 'sign-out':
     session_destroy();

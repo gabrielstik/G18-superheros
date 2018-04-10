@@ -20,6 +20,11 @@ class Db {
     $user = $query->fetch();
     return !empty($user->id) ? $user->id : false;
   }
+  public function get_alias($id) {
+    $query = $this->pdo->query("SELECT * FROM users WHERE id = '$id'");
+    $user = $query->fetch();
+    return !empty($user->alias) ? $user->alias : false;
+  }
   public function check_account($user) {
     $query = $this->pdo->query("SELECT * FROM users WHERE username = '$user'");
     $user = $query->fetch();

@@ -14,22 +14,28 @@
     
   </div>
   <nav class="header--nav">
-    <ul class="header--nav--list flex flex_between">
+    <ul class="header--nav--list flex flex_evenly">
       <li class="header--nav--item">
         <a href="/home" title="">Accueil</a>
       </li>
+      <? if (isset($_SESSION['username'])) { ?>
       <li class="header--nav--item">
         <a href="/matches" title="">Les parties</a>
       </li>
+      <? } ?>
+      <? if (isset($_SESSION['username'])) { ?>
       <li class="header--nav--item">
         <a href="/shop" title="">Boutique</a>
       </li>
+      <? } ?>
       <li class="header--nav--item">
         <a href="/leaderboard" title="">Classement</a>
       </li>
+      <? if (isset($_SESSION['username'])) { ?>
       <li class="header--nav--item">
         <a href="/tournament" title="">Tournois</a>
       </li>
+      <? } ?>
     </ul>
   </nav>
   <div class="header--account">
