@@ -22,7 +22,9 @@ class SignInController {
       $actual_pw = $Db->get_hashed_password($user);
       if (!empty($actual_pw)) {
         if (password_verify($password, $actual_pw)) {
+          $id = $Db->get_user_id($user);
           $_SESSION['username'] = $user;
+          $_SESSION['user-id'] = $id;
           header('Location: /');
         }
         else array_push($this->error, 'password_incorrect');

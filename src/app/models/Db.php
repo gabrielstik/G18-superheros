@@ -15,6 +15,11 @@ class Db {
     $user = $query->fetch();
     return !empty($user->password) ? $user->password : false;
   }
+  public function get_user_id($user) {
+    $query = $this->pdo->query("SELECT * FROM users WHERE username = '$user'");
+    $user = $query->fetch();
+    return !empty($user->id) ? $user->id : false;
+  }
   public function check_account($user) {
     $query = $this->pdo->query("SELECT * FROM users WHERE username = '$user'");
     $user = $query->fetch();
@@ -34,5 +39,10 @@ class Db {
     $query = $this->pdo->query("SELECT * FROM shop");
     $shop = $query->fetchAll();
     return $shop;
+  }
+  public function get_in_progress_matches($id) {
+    $query = $this->pdo->query("SELECT * FROM matches WHERE in_progress = true AND (player_1 = $id OR player_2 = $id)");
+    $matches = $query->fetchAll();
+    return $matches;
   }
 }

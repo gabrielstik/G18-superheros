@@ -23,6 +23,9 @@ function call($controller) {
     case 'shop':
       $controller = new ShopController();
       break;
+    case 'matches':
+      $controller = new MatchesController();
+      break;
   }
 }
 
@@ -43,6 +46,9 @@ switch($page) {
     break;
   case 'shop':
     call('shop');
+    break;
+  case 'matches':
+    call('matches');
     break;
   case 'sign-out':
     session_destroy();
