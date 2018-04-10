@@ -1,9 +1,21 @@
+*{
+    user-select: none;
+}
 .boardGame{
     perspective: 800px;
     width: 1100px;
     height: 600px;
     position: relative;
     background-color: brown;
+}
+
+.passTurn{
+    width: 90px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: aqua;
 }
 
 /******** CARDS ******/
@@ -13,6 +25,8 @@
     height: 128px; 
     margin-right: 10px; 
     transform-style: preserve-3d;
+
+    
     
 }
 
@@ -38,6 +52,10 @@
     transform: translateX(-50%);  
 }
 
+.cardStats{
+    position: absolute;
+    bottom: 0px;
+}
 
 /******** HAND *******/
 
@@ -49,8 +67,30 @@
     bottom: 2%;
     transform: translateX(-50%);
     display: flex;
+    z-index: 10;
 }
 
+
+/********Energy*****/
+
+.energy{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    background-color: rgb(193, 193, 14)
+}
+
+.energyLeft, .energyTotal{
+    padding-top: 20px;
+    flex: 1;
+    text-align: right;
+}
+
+.energyTotal{
+    text-align: left;
+}
 
 /********Deck*****/
 
@@ -120,3 +160,6 @@
 }
 
 
+.cardStats .attack{
+    color: blue;
+}
