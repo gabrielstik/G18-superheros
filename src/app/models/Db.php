@@ -45,6 +45,11 @@ class Db {
     $cards = $query->fetchAll();
     return $cards;
   }
+  public function get_collection($id) {
+    $query = $this->pdo->query("SELECT * FROM collection WHERE related_user = $id");
+    $collection = $query->fetchAll();
+    return $collection;
+  }
   public function get_in_progress_matches($id) {
     $query = $this->pdo->query("SELECT * FROM matches WHERE in_progress = true AND (player_1 = $id OR player_2 = $id)");
     $matches = $query->fetchAll();

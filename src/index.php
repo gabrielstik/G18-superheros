@@ -26,6 +26,9 @@ function call($controller) {
     case 'matches':
       $controller = new MatchesController();
       break;
+    case 'collection':
+      $controller = new CollectionController();
+      break;
     case 'match':
       empty(explode('/', $_GET['q'])[1]) ? header('Location: /404') : $match_id = explode('/', $_GET['q'])[1];
       $controller = new MatchController($match_id);
@@ -48,11 +51,14 @@ switch($page) {
   case 'leaderboard':
     call('leaderboard');
     break;
+  case 'collection':
+  isset($_SESSION['username']) ? call('collection') : header('Location: /sign-in');
+    break;
   case 'shop':
-    isset($_SESSION['username']) ? call('shop') : header('Location: /'.$_GET['q']);
+    isset($_SESSION['username']) ? call('shop') : header('Location: /sign-in');
     break;
   case 'matches':
-    isset($_SESSION['username']) ? call('matches') : header('Location: /'.$_GET['q']);
+    isset($_SESSION['username']) ? call('matches') : header('Location: /sign-in');
     break;
   case 'sign-out':
     session_destroy();
