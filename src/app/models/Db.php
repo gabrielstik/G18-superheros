@@ -41,9 +41,9 @@ class Db {
     return $users;
   }
   public function get_shop() {
-    $query = $this->pdo->query("SELECT * FROM shop");
-    $shop = $query->fetchAll();
-    return $shop;
+    $query = $this->pdo->query("SELECT * FROM cards");
+    $cards = $query->fetchAll();
+    return $cards;
   }
   public function get_in_progress_matches($id) {
     $query = $this->pdo->query("SELECT * FROM matches WHERE in_progress = true AND (player_1 = $id OR player_2 = $id)");

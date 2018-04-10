@@ -5,10 +5,10 @@ class ShopController {
     
     include './app/models/Db.php';
     $db = new Db();
-    $this->show($db->get_shop());
+    $this->disp($db->get_shop());
   }
 
-  public function show($shop) {
+  public function disp($cards) {
     include './app/views/partials/header.php';
     include './app/views/shop.php';
   }

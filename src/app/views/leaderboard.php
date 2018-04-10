@@ -4,7 +4,7 @@
     <div class="head head--wins">Victoires</div>
     <div class="head head--loses">Défaites</div>
     <div class="head head--rank">Rang</div>
-    <div class="head head--level">Niveau</div>
+    <div class="head head--level">Vibranium</div>
   </li>
   <? foreach ($leaderboard as $player) { ?>
   <li class="leaderboard--player flex flex_between">
@@ -12,7 +12,7 @@
     <div class="player player--wins"><?= $player->wins ?></div>
     <div class="player player--loses"><?= $player->loses ?></div>
     <div class="player player--rank"><?= $player->rank ?></div>
-    <div class="player player--level"><?= $player->level ?></div>
+    <div class="player player--level"><?= $player->xp ?></div>
   </li>
   <? } ?>
 </ul>
