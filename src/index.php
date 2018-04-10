@@ -17,6 +17,9 @@ function call($controller) {
     case 'leaderboard':
       $controller = new LeaderboardController();
       break;
+    case 'shop':
+      $controller = new ShopController();
+      break;
   }
 }
 
@@ -35,6 +38,9 @@ switch($page) {
     break;
   case 'leaderboard':
     call('leaderboard');
+    break;
+  case 'shop':
+    call('shop');
     break;
   case 'sign-out':
     session_destroy();

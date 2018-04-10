@@ -30,4 +30,9 @@ class Db {
     $users = $query->fetchAll();
     return $users;
   }
+  public function get_shop() {
+    $query = $this->pdo->query("SELECT * FROM shop");
+    $shop = $query->fetchAll();
+    return $shop;
+  }
 }
