@@ -1,3 +1,18 @@
-.player {
+.leaderboard {
+  width: 90%;
+  margin: auto;
+
+  &--head {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+.head {
+  color: white;
+  font-weight: 700;
+}
+
+.leaderboard--player {
   color: white;
 }
