@@ -42,7 +42,7 @@
 /******** HAND *******/
 
 .boardGame .allyBoard .hand{
-    width: 60%;
+    width: 660px;
     height: 128px;
     position: absolute;
     left: 50%;
