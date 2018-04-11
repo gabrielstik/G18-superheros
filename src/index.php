@@ -30,13 +30,17 @@ function call($controller) {
       $controller = new CollectionController();
       break;
     case 'match':
-      empty(explode('-', $_GET['q'])[1]) ? header('Location: /404') : $match_id = explode('-', $_GET['q'])[1];
+      $match_id = explode('-', $_GET['q'])[1];
       $controller = new MatchController($match_id);
       break;
   }
 }
 
 $page = isset($_GET['q']) ? $_GET['q'] : 'home';
+
+if (substr($page, 0, 5) === 'match' && isset($_SESSION['username']) && substr($page, 5, 2) !== 'es') {
+  empty(explode('-', $_GET['q'])[1]) ? header('Location: /404') : call('match');
+}
 
 switch($page) {
   case 'home':
@@ -64,8 +68,4 @@ switch($page) {
     session_destroy();
     header('Location: /');
     break;
-}
-
-if (substr($page, 0, 5) === 'match' && isset($_SESSION['username'])) {
-  call('match');
 }
