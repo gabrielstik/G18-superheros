@@ -25,6 +25,11 @@
       <? } ?>
       <? if (isset($_SESSION['username'])) { ?>
       <li class="header--nav--item">
+        <a href="/collection" title="">Ma collection</a>
+      </li>
+      <? } ?>
+      <? if (isset($_SESSION['username'])) { ?>
+      <li class="header--nav--item">
         <a href="/shop" title="">Boutique</a>
       </li>
       <? } ?>

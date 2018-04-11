@@ -30,7 +30,7 @@ function call($controller) {
       $controller = new CollectionController();
       break;
     case 'match':
-      empty(explode('/', $_GET['q'])[1]) ? header('Location: /404') : $match_id = explode('/', $_GET['q'])[1];
+      empty(explode('-', $_GET['q'])[1]) ? header('Location: /404') : $match_id = explode('-', $_GET['q'])[1];
       $controller = new MatchController($match_id);
       break;
   }

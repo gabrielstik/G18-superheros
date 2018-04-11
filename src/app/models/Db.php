@@ -60,4 +60,12 @@ class Db {
     $match = $query->fetch();
     return !empty($match) ? array($match->player_1, $match->player_2) : false;
   }
+  public function add_deck($id) {
+    $query = $this->pdo->prepare("UPDATE collection SET in_deck = 1 WHERE id = $id");
+    $match = $query->execute();
+  }
+  public function remove_deck($id) {
+    $query = $this->pdo->prepare("UPDATE collection SET in_deck = 0 WHERE id = $id");
+    $match = $query->execute();
+  }
 }

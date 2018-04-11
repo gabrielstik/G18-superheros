@@ -18,8 +18,7 @@ class MatchController {
   }
 
   function disp($match_id) {
-    echo '<pre style="font-size:12px">';
-    print_r($match_id);
-    echo '</pre>';
+    include './app/views/partials/header.php';
+    include './app/views/match.php';
   }
 }
