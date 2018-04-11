@@ -18,12 +18,21 @@ class MatchController {
   }
 
   function get_data($match_id) {
+    $Db = new Db();
+    $match = $Db->get_match($match_id);
+
+    $player_1_id = $_SESSION['user-id'];
     $player_1 = array(
-      'alias' => $this->Db->get_alias($_SESSION['user-id'])
+      'alias' => $Db->get_alias($player_1_id),
+      'deck' => $Db->get_deck($player_1_id)
     );
+
+    $player_2_id = $_SESSION['user-id'] == $match->player_1 ? $match->player_2 : $match->player_1;
     $player_2 = array(
-      'alias' => $_SESSION['user-id'] == $this->Db->get_match($match_id)->player_1 ? $this->Db->get_alias($this->Db->get_match($match_id)->player_2) : $this->Db->get_alias($this->Db->get_match($match_id)->player_1)
+      'alias' => $Db->get_alias($player_2_id),
+      'deck' => $Db->get_deck($player_2_id)
     );
+
     $this->disp($player_1, $player_2);
   }
 

@@ -65,6 +65,11 @@ class Db {
     $match = $query->fetch();
     return !empty($match) ? array($match->player_1, $match->player_2) : false;
   }
+  public function get_deck($id) {
+    $query = $this->pdo->query("SELECT * FROM collection WHERE related_user = $id AND in_deck = 1");
+    $deck = $query->fetchAll();
+    return $deck;
+  }
   public function add_deck($id) {
     $query = $this->pdo->prepare("UPDATE collection SET in_deck = 1 WHERE id = $id");
     $match = $query->execute();
