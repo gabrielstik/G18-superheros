@@ -53,7 +53,6 @@ const cardMovement = ()=>{
     if (currentCard){
         //so the card can only move while in your hand
         if(currentCard.parentElement.className === "hand"){
-            console.log("tutut")
             // make the card position and the mouse in tune
             let cardPosition = {x: mouse.x - handPosition.x - currentCard.offsetLeft,
                                 y: mouse.y - handPosition.y - currentCard.offsetTop }
@@ -91,10 +90,19 @@ const slotsCardsDetection = ()=>{
         if( moreThanLeftCornerX && lessThanRightCornerX && moreThanLeftCornerY && lessThanRightCornerY){
             if(currentCard && currentCard.parentElement.className === "hand"){
                 if(energy>0){
-                    allyFieldSlots[i].style.backgroundColor = "yellow"
-                    console.log(currentCard)
-                    allyFieldSlots[i].appendChild(currentCard)
-                    lowerEnergy()
+                    console.log(allyFieldSlots[i].childElementCount)
+                    if(allyFieldSlots[i].childElementCount == 0){
+                        allyFieldSlots[i].style.backgroundColor = "yellow"
+                        console.log(currentCard)
+                        allyFieldSlots[i].appendChild(currentCard)
+                        lowerEnergy()
+                    }
+                    else{
+                        alert("you can't put two cards in the same field")
+                    }
+                }
+                else{
+                    alert("you need energy")
                 }
             }
         }
@@ -105,13 +113,21 @@ const slotsCardsDetection = ()=>{
 //draw card when click on the deck (used in click on deck)
 const cardDraw = ()=>{
     if(deck.childElementCount>0){
-        if(energy>0){
-        hand.appendChild(deck.firstElementChild)
-        console.log("draw")
-        lowerEnergy()
-        putMouseDownListenerOnHandCards()
-        console.log(handCards)
-        }   
+        if(hand.childElementCount<7){
+            if(energy>0){
+            hand.appendChild(deck.firstElementChild)
+            console.log("draw")
+            lowerEnergy()
+            putMouseDownListenerOnHandCards()
+            console.log(handCards)
+            }   
+        }  
+        else{
+            alert("you have too much cards in hand")
+        } 
+    }
+    else{
+        alert("your deck is empty")
     }
 }
 
@@ -307,10 +323,10 @@ const maxEnergy = ()=>{
 
 const gameOutcome = ()=>{
     if(allyLife.innerHTML < 1){
-        console.error("you lost")
+        alert("you lost")
     }
     if(ennemyLife.innerHTML < 1){
-        console.error("you won")
+        alert("you won")
     }
 }
 
