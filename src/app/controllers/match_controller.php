@@ -23,13 +23,21 @@ class MatchController {
     $player_1_id = $_SESSION['user-id'];
     $player_1 = array(
       'alias' => $this->Db->get_alias($player_1_id),
-      'deck' => $this->Db->get_deck($player_1_id)
+      'mana' => $match->player_1_mana,
+      'health' => $match->player_1_health,
+      'deck' => $this->Db->get_deck($player_1_id),
+      'cards_position' => array(),
+      'cards_defense' => array()
     );
 
     $player_2_id = $_SESSION['user-id'] == $match->player_1 ? $match->player_2 : $match->player_1;
     $player_2 = array(
       'alias' => $this->Db->get_alias($player_2_id),
-      'deck' => $this->Db->get_deck($player_2_id)
+      'mana' => $match->player_2_mana,
+      'health' => $match->player_2_health,
+      'deck' => $this->Db->get_deck($player_2_id),
+      'cards_position' => array(),
+      'cards_defense' => array()
     );
 
     $this->disp($player_1, $player_2);
