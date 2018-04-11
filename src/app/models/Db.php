@@ -55,6 +55,11 @@ class Db {
     $matches = $query->fetchAll();
     return $matches;
   }
+  public function get_match($id) {
+    $query = $this->pdo->query("SELECT * FROM matches WHERE id = $id");
+    $match = $query->fetch();
+    return $match;
+  }
   public function get_playing_players($match_id) {
     $query = $this->pdo->query("SELECT * FROM matches WHERE id = $match_id");
     $match = $query->fetch();
