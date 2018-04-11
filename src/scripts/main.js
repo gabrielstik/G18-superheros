@@ -13,7 +13,7 @@ const ennemyLife = document.querySelector(".ennemyBoard .life")
 const deck = document.querySelector(".deck")
 
 
-console.log(deck.firstChild)
+
 
 ////////// global variable ///////
 
@@ -143,19 +143,28 @@ const endingTurn = ()=>{
     console.table(statsOfEnnemyField)
     if (speeder === "ally"){
         calculAttack(allyFieldSlots, ennemyFieldSlots, ennemyLife)
+        destroyCard(allyFieldSlots)
+        destroyCard(ennemyFieldSlots)
         calculAttack(ennemyFieldSlots, allyFieldSlots, allyLife)
+
+        
     }
     else{
         calculAttack(ennemyFieldSlots, allyFieldSlots, allyLife)
+        destroyCard(allyFieldSlots)
+        destroyCard(ennemyFieldSlots)
         calculAttack(allyFieldSlots, ennemyFieldSlots, ennemyLife)
+
+        
     }
     //destroy cards with less than 1 hp
-    destroyCard(allyFieldSlots)
-    destroyCard(ennemyFieldSlots)
-    //refill the energy
-    maxEnergy()
-    //checking if the game is done
-    gameOutcome()
+        destroyCard(allyFieldSlots)
+        destroyCard(ennemyFieldSlots)
+        //refill the energy
+        maxEnergy()
+        //checking if the game is done
+        gameOutcome()
+    
     
 }
 
@@ -166,10 +175,9 @@ const calculAttack = (first, second, life) =>{
             let defence = second[i].querySelector(".card .cardFront .cardStats .defence").innerHTML
             const inteligence = second[i].querySelector(".card .cardFront .cardStats .defence").innerHTML
             const attack = first[i].querySelector(".card .cardFront .cardStats .attack").innerHTML
-            dodge = Math.random()*testIntel < testIntel*20/100? true : false
-     
+            const dodge = Math.random()*inteligence < inteligence*20/100? true : false
             console.log(attack + defence)
-            if(!dodge){
+            if(!dodge && defence>0){
                 
                 defence-=attack
             }
@@ -194,18 +202,7 @@ const destroyCard = (fieldSlots)=>{
     })
 }
 
-const testIntel = 100
-let y = 0
-let dodge
-let truee = 0
-while(y<100){
 
-y++
-if(dodge){
-    truee++
-}
-console.log(truee)
-}
 
 
 // calculate the stats of each cards existing in both fields 
@@ -365,4 +362,3 @@ cards.forEach(card => {
 
 
 
-window.fetch('test.php?value=30')
