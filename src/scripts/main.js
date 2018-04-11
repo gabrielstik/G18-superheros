@@ -149,6 +149,13 @@ const endingTurn = ()=>{
         calculAttack(ennemyFieldSlots, allyFieldSlots, allyLife)
         calculAttack(allyFieldSlots, ennemyFieldSlots, ennemyLife)
     }
+    //destroy cards with less than 1 hp
+    destroyCard(allyFieldSlots)
+    destroyCard(ennemyFieldSlots)
+    //refill the energy
+    maxEnergy()
+    //checking if the game is done
+    gameOutcome()
     
 }
 
@@ -160,10 +167,10 @@ const calculAttack = (first, second, life) =>{
             const inteligence = second[i].querySelector(".card .cardFront .cardStats .defence").innerHTML
             const attack = first[i].querySelector(".card .cardFront .cardStats .attack").innerHTML
             dodge = Math.random()*testIntel < testIntel*20/100? true : false
-            console.error(dodge)
+     
             console.log(attack + defence)
             if(!dodge){
-                console.error("not dodged")
+                
                 defence-=attack
             }
             second[i].querySelector(".card .cardFront .cardStats .defence").innerHTML = defence
@@ -174,6 +181,17 @@ const calculAttack = (first, second, life) =>{
             life.innerHTML -= attack
         }
     }
+}
+
+// destroy cards with less than 0 hp (used in end turn)
+const destroyCard = (fieldSlots)=>{
+    fieldSlots.forEach(fieldSlot => {
+        if(fieldSlot.firstElementChild){
+            if (fieldSlot.querySelector(".card .cardFront .cardStats .defence").innerHTML <= 0){
+                fieldSlot.querySelector(".card").remove()
+            }
+        }
+    })
 }
 
 const testIntel = 100
@@ -285,6 +303,20 @@ const lowerEnergy =()=>{
     energyLeft.innerHTML= energy
 }
 
+const maxEnergy = ()=>{
+    energy=parseInt(energyTotal.innerHTML)
+    energyLeft.innerHTML= energy
+}
+
+const gameOutcome = ()=>{
+    if(allyLife.innerHTML < 1){
+        console.error("you lost")
+    }
+    if(ennemyLife.innerHTML < 1){
+        console.error("you won")
+    }
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
         ////////// addEventListener  //////////
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -333,4 +365,4 @@ cards.forEach(card => {
 
 
 
-// 
+window.fetch('test.php?value=30')

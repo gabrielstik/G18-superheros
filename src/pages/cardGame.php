@@ -15,7 +15,7 @@
             <div class="life">750</div>
             <div class="energy">
                 <div class="energyLeft">5</div>
-                <div class="energyTotal">/5</div>
+                <div class="energyTotal">5</div>
             </div>
             <div class="hand">
                 <div class="card">
