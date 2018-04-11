@@ -8,6 +8,8 @@ const ennemyFieldSlots = document.querySelectorAll(".ennemyField .field_slots")
 const passTurn = document.querySelector(".passTurn")
 const energyLeft = document.querySelector(".energyLeft")
 const energyTotal = document.querySelector(".energyTotal")
+const allyLife = document.querySelector(".allyBoard .life")
+const ennemyLife = document.querySelector(".ennemyBoard .life")
 const deck = document.querySelector(".deck")
 
 
@@ -123,18 +125,68 @@ const putMouseDownListenerOnHandCards = () =>{
     }
 }
 
+
+
 // end turn (used in click on passTurn)
 const endingTurn = ()=>{
     endTurn = 1
     console.log(endTurn)
-    calculateSpeedOfTheTeam()
-    console.log(allyFieldSlots)
+    //which team has the most speed
+    
+    const allySpeed = calculateSpeedOfTheTeam(allyFieldSlots)
+    const ennemySpeed = calculateSpeedOfTheTeam(ennemyFieldSlots)
+    const speeder = calculateSpeeder(allySpeed, ennemySpeed)
+    console.log(speeder)
     let statsOfAllyField = calculateStatsOfFields(allyFieldSlots)
     let statsOfEnnemyField = calculateStatsOfFields(ennemyFieldSlots)
     console.table(statsOfAllyField)
     console.table(statsOfEnnemyField)
-    compareStats(statsOfAllyField, statsOfEnnemyField)
+    if (speeder === "ally"){
+        calculAttack(allyFieldSlots, ennemyFieldSlots, ennemyLife)
+        calculAttack(ennemyFieldSlots, allyFieldSlots, allyLife)
+    }
+    else{
+        calculAttack(ennemyFieldSlots, allyFieldSlots, allyLife)
+        calculAttack(allyFieldSlots, ennemyFieldSlots, ennemyLife)
+    }
+    
+}
 
+const calculAttack = (first, second, life) =>{
+    console.log("fqdsfdjqkfqdkmfjf" + first + second)
+    for (let i = 0; i<first.length; i++ ){
+        if (first[i].firstElementChild && second[i].firstElementChild){
+            let defence = second[i].querySelector(".card .cardFront .cardStats .defence").innerHTML
+            const inteligence = second[i].querySelector(".card .cardFront .cardStats .defence").innerHTML
+            const attack = first[i].querySelector(".card .cardFront .cardStats .attack").innerHTML
+            dodge = Math.random()*testIntel < testIntel*20/100? true : false
+            console.error(dodge)
+            console.log(attack + defence)
+            if(!dodge){
+                console.error("not dodged")
+                defence-=attack
+            }
+            second[i].querySelector(".card .cardFront .cardStats .defence").innerHTML = defence
+            console.log(defence)
+        }
+        else if(first[i].firstElementChild){
+            const attack = first[i].querySelector(".card .cardFront .cardStats .attack").innerHTML
+            life.innerHTML -= attack
+        }
+    }
+}
+
+const testIntel = 100
+let y = 0
+let dodge
+let truee = 0
+while(y<100){
+
+y++
+if(dodge){
+    truee++
+}
+console.log(truee)
 }
 
 
@@ -144,68 +196,87 @@ const calculateStatsOfFields = (fieldSlots)=>{
     const statsOfField = []
     //we are looking for each slots and each stats
     fieldSlots.forEach(fieldSlot=>{
-        const attack = calculAttackOfFields(fieldSlot)
-        const defense = calculDefenceOfFields(fieldSlot)
-        const inteligence = calculInteligenceOfFields(fieldSlot)
-        const stats = [attack, defense, inteligence]
+        // || 0 transform NaN into 0
+        const attack = parseInt(calculAttackOfFields(fieldSlot)) || 0
+        const defence = parseInt(calculDefenceOfFields(fieldSlot)) || 0
+        const inteligence = parseInt(calculInteligenceOfFields(fieldSlot)) || 0
+        const stats = [attack, defence, inteligence]
         statsOfField.push(stats)
     })
     return statsOfField
 }
 
-const compareStats = (ally, ennemy)=>{
-    for(let i = 0 ; i < ally.length; i++){
-        for(let j = 0; j < ally.length; j++){
-            if (j == 0){
-                console.log("attack ally : " + i + " " + ally[i][j])
-                console.log("attack ennemy : " + i + " " + ennemy[i][j])
-            }
-            if (j == 1){
-                console.log("defence ally : " + i + " " + ally[i][j])
-                console.log("defence ennemy : " + i + " " + ennemy[i][j])
-            }
-            if (j == 2){
-                console.log("inteligence ally : " + i + " " + ally[i][j])
-                console.log("inteligence ennemy : " + i + " " + ennemy[i][j])
-            }
-        }
-    }
-}
+// const compareStats = (first, second)=>{
+//     for(let i = 0 ; i < first.length; i++){
+//         for(let j = 0; j < first.length; j++){
+//             if (j == 0){
+//                 console.log("attack first : " + i + " " + first[i][j])
+//                 console.log("attack second : " + i + " " + second[i][j])
+//             }
+//             if (j == 1){
+//                 console.log("defence first : " + i + " " + first[i][j])
+//                 console.log("defence second : " + i + " " + second[i][j])
+//             }
+//             if (j == 2){
+//                 console.log("inteligence first : " + i + " " + first[i][j])
+//                 console.log("inteligence second : " + i + " " + second[i][j])
+//             }
+//         }
+//     }
+//  
+// 
+// 
+// 
+// 
+// }
 
 //calcul of the attack
 const calculAttackOfFields =(fieldSlot)=>{
     if (fieldSlot.querySelector(".card")){
-        console.log("attack ally : " + fieldSlot.querySelector(".card .cardFront .cardStats .attack").dataset.attack )
-        return fieldSlot.querySelector(".card .cardFront .cardStats .attack").dataset.attack 
+        console.log("attack ally : " + fieldSlot.querySelector(".card .cardFront .cardStats .attack").innerHTML )
+        return fieldSlot.querySelector(".card .cardFront .cardStats .attack").innerHTML 
     }
 }
 
 //calcul of the inteligence
 const calculInteligenceOfFields =(fieldSlot)=>{
     if (fieldSlot.querySelector(".card")){
-        console.log("inteligence ally : " + fieldSlot.querySelector(".card .cardFront .cardStats .inteligence").dataset.inteligence )
-        return fieldSlot.querySelector(".card .cardFront .cardStats .inteligence").dataset.inteligence 
+        console.log("inteligence ally : " + fieldSlot.querySelector(".card .cardFront .cardStats .inteligence").innerHTML )
+        return fieldSlot.querySelector(".card .cardFront .cardStats .inteligence").innerHTML 
     }
 }
 
 //calcul of the defence
 const calculDefenceOfFields =(fieldSlot)=>{
     if (fieldSlot.querySelector(".card")){
-        console.log("defence ally : " + fieldSlot.querySelector(".card .cardFront .cardStats .defence").dataset.defence )
-        return fieldSlot.querySelector(".card .cardFront .cardStats .defence").dataset.defence 
+        console.log("defence ally : " + fieldSlot.querySelector(".card .cardFront .cardStats .defence").innerHTML )
+        return fieldSlot.querySelector(".card .cardFront .cardStats .defence").innerHTML 
     }
 }
 
 //calcul of the sum of speed of each team
-const calculateSpeedOfTheTeam = () =>{
+const calculateSpeedOfTheTeam = (fieldSlots) =>{
     let teamSpeed = 0
-    allyFieldSlots.forEach(allyFieldSlot => {
-        if (allyFieldSlot.querySelector(".card")){
-            const speed = parseInt(allyFieldSlot.querySelector(".card .cardFront .cardStats .speed").dataset.speed)
+    fieldSlots.forEach(fieldSlot => {
+        if (fieldSlot.querySelector(".card")){
+            const speed = parseInt(fieldSlot.querySelector(".card .cardFront .cardStats .speed").innerHTML)
             teamSpeed+=speed
         }
     })
-    console.log(teamSpeed)
+    return teamSpeed
+}
+
+const calculateSpeeder = (allySpeed, ennemySpeed)=>{
+    if( allySpeed > ennemySpeed){
+        speeder = "ally"
+    }
+    else if(allySpeed < ennemySpeed){
+        speeder ="ennemy"
+    }
+    else{
+        speeder = Math.random() < 0.5 ? "ally" : "ennemy"
+    }
+    return speeder
 }
 
 //lower energy and update the text (used in cardDraw and slotsCardsDetection)
