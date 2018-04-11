@@ -25,6 +25,11 @@ class Db {
     $user = $query->fetch();
     return !empty($user->alias) ? $user->alias : false;
   }
+  public function get_money($id) {
+    $query = $this->pdo->query("SELECT * FROM users WHERE id = '$id'");
+    $user = $query->fetch();
+    return !empty($user->money) ? $user->money : false;
+  }
   public function check_account($user) {
     $query = $this->pdo->query("SELECT * FROM users WHERE username = '$user'");
     $user = $query->fetch();
@@ -81,10 +86,15 @@ class Db {
   public function get_price($id) {
     $query = $this->pdo->query("SELECT * FROM cards WHERE api_id = $id");
     $deck = $query->fetch();
-    return $deck;
+    return $deck->price;
   }
   public function buy_card($user_id, $card_id) {
     $exec = $this->pdo->prepare("INSERT INTO collection (related_user, card_id) VALUES ('$user_id', '$card_id')");
     $exec->execute();
+  }
+  public function user_transaction($user_id, $amount) {
+    $money = $this->get_money($user_id) - $amount;
+    $query = $this->pdo->prepare("UPDATE users SET money = $money WHERE id = $user_id");
+    $match = $query->execute();
   }
 }

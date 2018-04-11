@@ -22,12 +22,17 @@ class ShopController {
       $data = $API->get_hero($card->api_id);
       array_push($datas, $data);
     }
+    $money = $this->Db->get_money($_SESSION['user-id']);
 
     include './app/views/partials/header.php';
     include './app/views/shop.php';
   }
 
   private function buy($user_id, $card_id) {
-    $this->Db->buy_card($user_id, $card_id);
+    if ($this->Db->get_price($card_id) <= $this->Db->get_money($user_id)) {
+      $this->Db->buy_card($user_id, $card_id);
+      $this->Db->user_transaction($user_id, $this->Db->get_price($card_id));
+    }
+    else $buy_error = 'not-enough-money';
   }
 }

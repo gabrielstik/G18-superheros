@@ -1,3 +1,7 @@
+<div class="current-money"><?= $money ?></div>
+<br>
+<br>
+<br>
 <ul>
   <? foreach ($datas as $data) { if (!empty($data->name)) { ?>
   <li>
@@ -18,7 +22,7 @@
     </div>
     <div class="card--price">
       Prix :
-      <?= $this->Db->get_price($data->id)->price ?>
+      <?= $this->Db->get_price($data->id) ?>
     </div>
     <form action="/shop" method="post">
       <input type="hidden" name="buy--id" value="<?= $data->id ?>"></input>
