@@ -1,6 +1,6 @@
 <?
 
-class APIs {
+class API {
 
   private function get($url) {
     $path = './cache/'.md5($url);
@@ -23,5 +23,10 @@ class APIs {
       array_push($images, $image);
     }
     return $images;
+  }
+
+  public function get_hero($id) {
+    $data = $this->get('http://superheroapi.com/api/'.SUPERHERO_API_KEY.'/'.$id);
+    return $data;
   }
 }

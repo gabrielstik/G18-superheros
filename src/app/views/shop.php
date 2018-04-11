@@ -1,11 +1,31 @@
 <ul>
-  <? foreach ($cards as $card) { ?>
+  <? foreach ($datas as $data) { if (!empty($data->name)) { ?>
   <li>
-  <?
-  echo '<pre style="font-size:12px">';
-  print_r($card);
-  echo '</pre>';
-  ?>
+    <div class="card--name">
+      Nom : <?= $data->name ?>
+    </div>
+    <div class="card--attack">
+      Attaque : <?= $data->powerstats->strength ?>
+    </div>
+    <div class="card--defense">
+      Défense : <?= $data->powerstats->durability ?>
+    </div>
+    <div class="card--intelligence">
+      Intelligence : <?= $data->powerstats->intelligence ?>
+    </div>
+    <div class="card--speed">
+      Vitesse : <?= $data->powerstats->speed ?>
+    </div>
+    <div class="card--price">
+      Prix :
+      <?= $this->Db->get_price($data->id)->price ?>
+    </div>
+    <form action="/shop" method="post">
+      <input type="hidden" name="buy--id" value="<?= $data->id ?>"></input>
+      <button type="submit" name="buy">Acheter</button>
+    </form>
   </li>
-  <? } ?>
+  <br>
+  <br>
+  <? }} ?>
 </ul>

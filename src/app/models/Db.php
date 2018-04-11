@@ -78,4 +78,13 @@ class Db {
     $query = $this->pdo->prepare("UPDATE collection SET in_deck = 0 WHERE id = $id");
     $match = $query->execute();
   }
+  public function get_price($id) {
+    $query = $this->pdo->query("SELECT * FROM cards WHERE api_id = $id");
+    $deck = $query->fetch();
+    return $deck;
+  }
+  public function buy_card($user_id, $card_id) {
+    $exec = $this->pdo->prepare("INSERT INTO collection (related_user, card_id) VALUES ('$user_id', '$card_id')");
+    $exec->execute();
+  }
 }
