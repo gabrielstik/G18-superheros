@@ -3,9 +3,12 @@ body{
     margin: 0px;
     font-family: "abel";
     position: relative;
-    background-color: #0D0D0D;
+    background-image: url(../Ressources/background.png);
+    background-repeat: repeat-y;
+    background-attachment: fixed;
     color: #F2F2F2 ;
 }
+
 @font-face {
     font-family: 'Marvel';
     src: url('marvel.ttf');
@@ -27,7 +30,7 @@ body{
     width: 93px;
 }
 
-#accueil
+#home
 {
 
     margin: auto auto;
@@ -46,7 +49,6 @@ body{
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     text-align: center;
-    background-color: rgba(13, 13, 13, 0.8);
 }
 
 nav ul li a:hover
@@ -102,10 +104,10 @@ header{
 .marvel
 {
     width: 100%;
-    height: 600px;
     margin-bottom: 1%;
     position: absolute;
     opacity: 0.8;
+    top: 0px;
 
 }
 
@@ -135,12 +137,24 @@ header{
 
 .play_btn
 {
-    background-color: #F1D881;
+    background-color: #1A1A1A;
     border-radius: 2px;
     text-decoration: none;
-    color: black;
-    padding: 10px 20px;
-    font-size: 1.5em;
+    color: #F2F2F2;
+    padding: 15px 25px;
+    margin-top: 3%;
+    font-size: 2em;
+}
+
+.play_btn:hover
+{
+    background-color: #770707;
+    border-radius: 2px;
+    text-decoration: none;
+    color: #F2F2F2;
+    padding: 15px 25px;
+    margin-top: 3%;
+    font-size: 2em;
 }
 
 #section1
@@ -148,12 +162,13 @@ header{
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
-    padding: 10%;
+    padding: 10% 10% 0% 10%;
 }
 
 #section1 p
 {
     margin: auto;
+    width: 50%;
     font-size: 2.5em;
     text-align: center;
     padding-right : 5%;
@@ -167,16 +182,21 @@ header{
 #section1 .image_marvel
 {
     width : 90%;
+    box-shadow: 3px 3px 40px #000000; 
 
 }
 
+.spidermanimg
+{
+    width: 25%;
+}
 
 #section2
 {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
-    padding: 10%;
+    padding: 0% 10% 0% 10%;
 }
 
 #section2 p
@@ -184,6 +204,7 @@ header{
     margin: auto;
     font-size: 2.5em;
     text-align: center;
+    width: 50%;
 
 }
 
@@ -195,11 +216,13 @@ header{
 #section2 .image_marvel
 {
     width : 90%;
+    box-shadow: 3px 3px 40px #000000; 
 
 }
 
 
-/* classement.html */
+
+/* rank.html */
 
 h2
 {
@@ -209,7 +232,7 @@ h2
     margin-left: 10%;
 }
 
-.classement
+.rank
 {
     background-image: url(../Ressources/marvel.png);
     background-repeat: no-repeat;
@@ -221,7 +244,7 @@ h2
 
 }
 
-.classement table
+.rank table
 {
     border: 0.5px solid black;
     border-collapse: collapse;
@@ -230,7 +253,7 @@ h2
     width: 70%;
 }
 
-.classement table thead
+.rank table thead
 {
     background-color: #C23C3C;
     color: #F2F2F2;
@@ -238,7 +261,7 @@ h2
     font-family: 'abel';
 }
 
-.classement table tbody
+.rank table tbody
 {
     background-color: #F2F2F2;
     color: #0D0D0D;
@@ -256,7 +279,7 @@ tr:nth-child(even)
     background-color: #BAB8B8;
 }
 
-.rang
+.rankcolumn
 {
     background-color: #F0D67C;
     font-size: 1.5em;
@@ -264,7 +287,7 @@ tr:nth-child(even)
     font-family: 'copperplate';
 }
 
-#rang
+#rank
 {
     padding: 0%;
 }
@@ -276,6 +299,8 @@ tr:nth-child(even)
     width: 25%;
     font-family: 'copperplate';
     padding: 3%;
+    background-color: #1A1A1A;
+    color: #F2F2F2;
 }
 
 .first
@@ -290,9 +315,9 @@ tr:nth-child(even)
 }
 
 
-/* Regles.html */
+/* Rules.html */
 
-.regles
+.rules
 {
     background-image: url(../Ressources/marvel.png);
     background-repeat: no-repeat;
@@ -304,24 +329,24 @@ tr:nth-child(even)
     font-size: 1.2em; 
 }
 
-.regles p, .regles ul
+.rules p, .rules ul
 {
     padding: 0% 6%;
 }
 
-.regles .imp_txt
+.rules .imp_txt
 {
     font-size: 1.5em;
     font-weight: lighter;
     padding-top: 3%;
 }
 
-.regles p span
+.rules p span
 {
     font-weight: bolder;
 }
 
-.pouvoir
+.power
 {
     font-size: 1.2em;
     text-decoration: underline;
@@ -350,16 +375,46 @@ tr:nth-child(even)
     width: 40%;
 }
 
+#imgrank
+{
+    display: flex;
+    margin-top: 3%;
+}
+
+.imgrank
+{
+    width: 16%;
+    height: 50%;
+}
+
+
+
+/* connexion.html */
+
+.connexion
+{
+    background-image: url(../Ressources/marvel.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    top: 30%;
+    padding: 18% 0%;
+    width : 100%;
+    font-size: 1.2em; 
+}
+
+
+
 
 footer
 {
     color: #f2F2F2;
-    margin-top: 0px;
+    margin-top: 7%;
     text-align: center;
     border-top: 1px solid black;
     padding-top: 1%;
     padding-bottom: 1%;
-    background-color: #2E2E2E;
+    background-color: #1A1A1A;
     font-size: 0.8em;
 }
 

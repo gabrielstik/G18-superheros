@@ -8,7 +8,7 @@
         <!--    CSS    -->
         <link href="../../Assets/Styles/style.css" media="screen and (min-width:600px)" rel="stylesheet">
 
-       
+
         <!--   Icons    -->
         <link rel="apple-touch-icon" sizes="57x57" href="../../Assets/Ressources/favicon/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="../../Assets/Ressources/favicon/apple-icon-60x60.png">
@@ -31,14 +31,14 @@
     </head>
 
     <body>
-        
+
         <div class="menu">
-           
-           <a href="#home" target="_blank" id="home"><img src="../../Assets/Ressources/jarvis.png"  alt="logo" class="jarvis"/></a>
-           
+
+            <a href="index.html" target="_blank" id="home"><img src="../../Assets/Ressources/jarvis.png"  alt="logo" class="jarvis"/></a>
+
             <nav>
                 <ul>
-                    <li> <a href="#home">HOME</a></li>
+                    <li> <a href="index.html">HOME</a></li>
                     <li><a href="../views/game.html">GAME</a></li>
                     <li> <a href="../views/collection.html">COLLECTION</a></li>
                     <li> <a href="../views/rank.html">RANK</a></li>
@@ -46,45 +46,41 @@
                     <li><a href="rules.html">RULES</a></li>
                 </ul>
             </nav>
-            
+
             <a href="connexion.html" target="_blank" id="profil">Caroline Cholley</a>
 
         </div>
 
-        <header>
+
+
+
+
+        <div class="connexion">
+            <H1>Se connecter</H1>
         
-        <img src="../../Assets/Ressources/marvel.png"  alt="marvel" class="marvel"/>
+        <form method="POST" action="">
+           
+            <input type="text" name="identifier" class="identifier" placeholder="ex: Thanos2998" maxlength="20">
+            <input type="password" name="password" class="password">
+            <button type="submit" class="task_button" name="submit">Connexion</button>
+        </form>
+        
+        </div>
 
-
-                <div class="title">
-                    <h1>LOREM IPSUM</h1>
-                    <a href="../views/game.html" class="play_btn">START</a>
-                </div>
+        <div id="imgrank">
+            <img src="../../Assets/Ressources/Bois.png"  alt="card" class="imgrank"/>
+            <img src="../../Assets/Ressources/Bronze.png"  alt="card" class="imgrank"/>
+            <img src="../../Assets/Ressources/Argent.png"  alt="card" class="imgrank"/>
+            <img src="../../Assets/Ressources/Or.png"  alt="card" class="imgrank"/>
+            <img src="../../Assets/Ressources/Platine.png"  alt="card" class="imgrank"/>
+            <img src="../../Assets/Ressources/Diamant.png"  alt="card" class="imgrank"/>
             
-        </header>
-
-<div class="section" id="section1">
-    
-    <p>Collect all your favorite heroes cards <br/>
-    <span>Buy new cards, select your deck, raise your army, prepare to fight and become the master of the game !</span></p>
-    
-     <div><img src="../../Assets/Ressources/image.png"  alt="image" class="image_marvel"/></div>
-    
-    
-</div>
-        <img src="../../Assets/Ressources/spiderman.png"  alt="image" class="spidermanimg"/>
-
-        <div class="section" id="section2">
-    
-     <div><img src="../../Assets/Ressources/image.png"  alt="image" class="image_marvel"/></div>
-     <p>How to play ?<br/>
-     <span>Invite a friend or play against a random player. You will have 8 cards in your deck. Make good use ! Alternately you will play a card, and try to destroy the defenses of your enemy.</span></p>
-    
-    
-</div>
-
+            
+        </div>
+        
+        
         <footer >
-            
+
 
             <p>© Powered by HETIC Groupe 18.</p>
 
