@@ -17,7 +17,9 @@
 </div>
 <div class="player-2">
   <div class="player-2--alias">Nom : <?= $player_2['alias'] ?></div>
-  <div class="player-2--deck"></div>
+  <div class="player-2--deck">
+    Cartes : <? foreach ($player_2['deck'] as $card) { echo $card->card_id; } ?>
+  </div>
   <div class="player-2--card-1"></div>
   <div class="player-2--card-2"></div>
   <div class="player-2--card-3"></div>
