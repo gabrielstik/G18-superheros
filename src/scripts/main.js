@@ -2,8 +2,9 @@
 const cards = document.querySelectorAll(".card")
 const hand = document.querySelector(".allyBoard .hand")
 let handCards = hand.querySelectorAll(".card")
-const field = document.querySelector(".field")
-const fieldSlots = field.querySelectorAll(".field_slots")
+const allyField = document.querySelector(".allyField")
+const allyFieldSlots = allyField.querySelectorAll(".field_slots")
+const ennemyFieldSlots = document.querySelectorAll(".ennemyField .field_slots")
 const passTurn = document.querySelector(".passTurn")
 const energyLeft = document.querySelector(".energyLeft")
 const energyTotal = document.querySelector(".energyTotal")
@@ -15,8 +16,8 @@ console.log(deck.firstChild)
 ////////// global variable ///////
 
 //hand position is vital to place the card correctly in the fields(used in cardMovement())
-const fieldPosition = { x:field.offsetLeft - field.offsetWidth/2,
-                        y:field.offsetTop }
+const fieldPosition = { x:allyField.offsetLeft - allyField.offsetWidth/2,
+                        y:allyField.offsetTop }
 
 
 //hand position is vital to move the card correctly (used in cardMovement())
@@ -74,40 +75,29 @@ const cardMovementInitialPosition = ()=>{
 }
 //put the card to a slot (used in mouseup)
 const slotsCardsDetection = ()=>{
-    for(let i = 0; i< fieldSlots.length; i++){
-        const fieldSlotsPosition = {w:fieldSlots[i].offsetWidth,
-                                    h:fieldSlots[i].offsetHeight,
-                                    x:fieldPosition.x + fieldSlots[i].offsetLeft,
-                                    y:field.offsetTop - fieldSlots[i].offsetHeight*60/100
-                                    }
-        const moreThanLeftCornerX = mouse.x > fieldSlotsPosition.x
-        const lessThanRightCornerX = mouse.x < fieldSlotsPosition.x + fieldSlotsPosition.w
-        const moreThanLeftCornerY = mouse.y > fieldSlotsPosition.y
-        const lessThanRightCornerY = mouse.y < fieldSlotsPosition.y + fieldSlotsPosition.h
+    for(let i = 0; i< allyFieldSlots.length; i++){
+        const allyFieldSlotsPosition = {
+            w:allyFieldSlots[i].offsetWidth,
+            h:allyFieldSlots[i].offsetHeight,
+            x:fieldPosition.x + allyFieldSlots[i].offsetLeft,
+            y:allyField.offsetTop - allyFieldSlots[i].offsetHeight*10/100
+        }
+        const moreThanLeftCornerX = mouse.x > allyFieldSlotsPosition.x
+        const lessThanRightCornerX = mouse.x < allyFieldSlotsPosition.x + allyFieldSlotsPosition.w
+        const moreThanLeftCornerY = mouse.y > allyFieldSlotsPosition.y
+        const lessThanRightCornerY = mouse.y < allyFieldSlotsPosition.y + allyFieldSlotsPosition.h
         if( moreThanLeftCornerX && lessThanRightCornerX && moreThanLeftCornerY && lessThanRightCornerY){
-            if(currentCard){
+            if(currentCard && currentCard.parentElement.className === "hand"){
                 if(energy>0){
-                    fieldSlots[i].style.backgroundColor = "yellow"
+                    allyFieldSlots[i].style.backgroundColor = "yellow"
                     console.log(currentCard)
-                    fieldSlots[i].appendChild(currentCard)
+                    allyFieldSlots[i].appendChild(currentCard)
                     lowerEnergy()
                 }
             }
         }
    
     }
-}
-
-// end turn (used in click on passTurn)
-const endingTurn = ()=>{
-    endTurn = 1
-    console.log(endTurn)
-}
-
-//lower energy and update the text (used in cardDraw and slotsCardsDetection)
-const lowerEnergy =()=>{
-    energy--
-    energyLeft.innerHTML= energy
 }
 
 //draw card when click on the deck (used in click on deck)
@@ -133,6 +123,96 @@ const putMouseDownListenerOnHandCards = () =>{
     }
 }
 
+// end turn (used in click on passTurn)
+const endingTurn = ()=>{
+    endTurn = 1
+    console.log(endTurn)
+    calculateSpeedOfTheTeam()
+    console.log(allyFieldSlots)
+    let statsOfAllyField = calculateStatsOfFields(allyFieldSlots)
+    let statsOfEnnemyField = calculateStatsOfFields(ennemyFieldSlots)
+    console.table(statsOfAllyField)
+    console.table(statsOfEnnemyField)
+    compareStats(statsOfAllyField, statsOfEnnemyField)
+
+}
+
+
+// calculate the stats of each cards existing in both fields 
+const calculateStatsOfFields = (fieldSlots)=>{
+    console.log(fieldSlots)
+    const statsOfField = []
+    //we are looking for each slots and each stats
+    fieldSlots.forEach(fieldSlot=>{
+        const attack = calculAttackOfFields(fieldSlot)
+        const defense = calculDefenceOfFields(fieldSlot)
+        const inteligence = calculInteligenceOfFields(fieldSlot)
+        const stats = [attack, defense, inteligence]
+        statsOfField.push(stats)
+    })
+    return statsOfField
+}
+
+const compareStats = (ally, ennemy)=>{
+    for(let i = 0 ; i < ally.length; i++){
+        for(let j = 0; j < ally.length; j++){
+            if (j == 0){
+                console.log("attack ally : " + i + " " + ally[i][j])
+                console.log("attack ennemy : " + i + " " + ennemy[i][j])
+            }
+            if (j == 1){
+                console.log("defence ally : " + i + " " + ally[i][j])
+                console.log("defence ennemy : " + i + " " + ennemy[i][j])
+            }
+            if (j == 2){
+                console.log("inteligence ally : " + i + " " + ally[i][j])
+                console.log("inteligence ennemy : " + i + " " + ennemy[i][j])
+            }
+        }
+    }
+}
+
+//calcul of the attack
+const calculAttackOfFields =(fieldSlot)=>{
+    if (fieldSlot.querySelector(".card")){
+        console.log("attack ally : " + fieldSlot.querySelector(".card .cardFront .cardStats .attack").dataset.attack )
+        return fieldSlot.querySelector(".card .cardFront .cardStats .attack").dataset.attack 
+    }
+}
+
+//calcul of the inteligence
+const calculInteligenceOfFields =(fieldSlot)=>{
+    if (fieldSlot.querySelector(".card")){
+        console.log("inteligence ally : " + fieldSlot.querySelector(".card .cardFront .cardStats .inteligence").dataset.inteligence )
+        return fieldSlot.querySelector(".card .cardFront .cardStats .inteligence").dataset.inteligence 
+    }
+}
+
+//calcul of the defence
+const calculDefenceOfFields =(fieldSlot)=>{
+    if (fieldSlot.querySelector(".card")){
+        console.log("defence ally : " + fieldSlot.querySelector(".card .cardFront .cardStats .defence").dataset.defence )
+        return fieldSlot.querySelector(".card .cardFront .cardStats .defence").dataset.defence 
+    }
+}
+
+//calcul of the sum of speed of each team
+const calculateSpeedOfTheTeam = () =>{
+    let teamSpeed = 0
+    allyFieldSlots.forEach(allyFieldSlot => {
+        if (allyFieldSlot.querySelector(".card")){
+            const speed = parseInt(allyFieldSlot.querySelector(".card .cardFront .cardStats .speed").dataset.speed)
+            teamSpeed+=speed
+        }
+    })
+    console.log(teamSpeed)
+}
+
+//lower energy and update the text (used in cardDraw and slotsCardsDetection)
+const lowerEnergy =()=>{
+    energy--
+    energyLeft.innerHTML= energy
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
         ////////// addEventListener  //////////
@@ -179,9 +259,7 @@ cards.forEach(card => {
 
 })
 
-fieldSlots.forEach(fieldSlot => {
-    console.log()
-})
+
 
 
 // 

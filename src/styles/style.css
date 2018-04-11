@@ -111,7 +111,7 @@
 
 /********Field*******/
 
-.boardGame .allyBoard .field{
+.boardGame .allyBoard .allyField{
     width: 46%;
     height: 128px;
     position: absolute;
@@ -148,7 +148,7 @@
     display: flex;
 }
 
-.boardGame .ennemyBoard .field{
+.boardGame .ennemyBoard .ennemyField{
     width: 46%;
     height: 128px;
     position: absolute;
