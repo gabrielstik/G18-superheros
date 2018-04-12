@@ -21,6 +21,7 @@
         <div class="deck">
             <? for ($i = 0; $i < sizeof($player_1['deck']); $i++) { ?>
             <? $hero = $API->get_hero($player_1['deck'][$i]->card_id) ?>
+
             <div class="card" data-id="<?= $player_1['deck'][$i]->card_id ?>">
                 <div class="cardFront">
                     <div class="name"><?= $hero->name ?></div>
@@ -38,7 +39,7 @@
         </div>
         <div class="allyField">
         <div class="field__slot0 field_slots">
-          <? if (!empty($player_1['cards'][0]->id)) {
+          <? if (!empty($player_1['cards'][0]->id) && $player_1['cards'][0]->hero_id != 0) {
             $hero = $API->get_hero($player_1['cards'][0]->hero_id) ?>
               <div class="card" data-id="<?= $player_1['cards'][0]->hero_id ?>" style="z-index: 1;">
                 <div class="cardFront" style="transform: scale(1);">
@@ -57,7 +58,7 @@
             </div>
 
             <div class="field__slot1 field_slots">
-          <? if (!empty($player_1['cards'][1]->id)) {
+          <? if (!empty($player_1['cards'][1]->id) && $player_1['cards'][1]->hero_id != 0) {
             $hero = $API->get_hero($player_1['cards'][1]->hero_id) ?>
               <div class="card" data-id="<?= $player_1['cards'][1]->hero_id ?>" style="z-index: 1;">
                 <div class="cardFront" style="transform: scale(1);">
@@ -76,7 +77,7 @@
             </div>
 
             <div class="field__slot2 field_slots">
-          <? if (!empty($player_1['cards'][2]->id)) {
+          <? if (!empty($player_1['cards'][2]->id) && $player_1['cards'][2]->hero_id != 0) {
             $hero = $API->get_hero($player_1['cards'][2]->hero_id) ?>
               <div class="card" data-id="<?= $player_1['cards'][2]->hero_id ?>" style="z-index: 1;">
                 <div class="cardFront" style="transform: scale(1);">
@@ -95,7 +96,7 @@
             </div>
 
             <div class="field__slot3 field_slots">
-          <? if (!empty($player_1['cards'][3]->id)) {
+          <? if (!empty($player_1['cards'][3]->id) && $player_1['cards'][3]->hero_id != 0) {
             $hero = $API->get_hero($player_1['cards'][3]->hero_id) ?>
               <div class="card" data-id="<?= $player_1['cards'][3]->hero_id ?>" style="z-index: 1;">
                 <div class="cardFront" style="transform: scale(1);">
@@ -114,7 +115,7 @@
             </div>
 
             <div class="field__slot4 field_slots">
-          <? if (!empty($player_1['cards'][4]->id)) {
+          <? if (!empty($player_1['cards'][4]->id) && $player_1['cards'][4]->hero_id != 0) {
             $hero = $API->get_hero($player_1['cards'][4]->hero_id) ?>
               <div class="card" data-id="<?= $player_1['cards'][4]->hero_id ?>" style="z-index: 1;">
                 <div class="cardFront" style="transform: scale(1);">
@@ -152,7 +153,7 @@
         </div>
         <div class="ennemyField">
         <div class="field__slot0 field_slots">
-          <? if (!empty($player_2['cards'][0]->id)) {
+          <? if (!empty($player_2['cards'][0]->id) && $player_2['cards'][0]->hero_id != 0) {
             $hero = $API->get_hero($player_2['cards'][0]->hero_id) ?>
               <div class="card" data-id="<?= $player_2['cards'][0]->hero_id ?>" style="z-index: 1;">
                 <div class="cardFront" style="transform: scale(1);">
@@ -171,7 +172,7 @@
             </div>
 
             <div class="field__slot1 field_slots">
-          <? if (!empty($player_2['cards'][1]->id)) {
+          <? if (!empty($player_2['cards'][1]->id) && $player_2['cards'][1]->hero_id != 0) {
             $hero = $API->get_hero($player_2['cards'][1]->hero_id) ?>
               <div class="card" data-id="<?= $player_2['cards'][1]->hero_id ?>" style="z-index: 1;">
                 <div class="cardFront" style="transform: scale(1);">
@@ -190,7 +191,7 @@
             </div>
 
             <div class="field__slot2 field_slots">
-          <? if (!empty($player_2['cards'][2]->id)) {
+          <? if (!empty($player_2['cards'][2]->id) && $player_2['cards'][2]->hero_id != 0) {
             $hero = $API->get_hero($player_2['cards'][2]->hero_id) ?>
               <div class="card" data-id="<?= $player_2['cards'][2]->hero_id ?>" style="z-index: 1;">
                 <div class="cardFront" style="transform: scale(1);">
@@ -209,7 +210,7 @@
             </div>
 
             <div class="field__slot3 field_slots">
-          <? if (!empty($player_2['cards'][3]->id)) {
+          <? if (!empty($player_2['cards'][3]->id) && $player_2['cards'][3]->hero_id != 0) {
             $hero = $API->get_hero($player_2['cards'][3]->hero_id) ?>
               <div class="card" data-id="<?= $player_2['cards'][3]->hero_id ?>" style="z-index: 1;">
                 <div class="cardFront" style="transform: scale(1);">
@@ -228,7 +229,7 @@
             </div>
 
             <div class="field__slot4 field_slots">
-          <? if (!empty($player_2['cards'][4]->id)) {
+          <? if (!empty($player_2['cards'][4]->id) && $player_2['cards'][4]->hero_id != 0) {
             $hero = $API->get_hero($player_2['cards'][4]->hero_id) ?>
               <div class="card" data-id="<?= $player_2['cards'][4]->hero_id ?>" style="z-index: 1;">
                 <div class="cardFront" style="transform: scale(1);">

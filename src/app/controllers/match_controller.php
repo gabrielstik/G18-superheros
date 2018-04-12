@@ -161,7 +161,7 @@ class MatchController {
       for ($i = 0; $i < 11; $i++) {
         $this->Db->update_hand($match->id, $match->round+1, $match->playing_player, $new_datas['card_'."$i".'_id'], $i);
       }
-      $this->Db->delete_null_cards();
+      // $this->Db->delete_null_cards();
       // $this->Db->update_match($this->match_id, $match, $new_datas['health']);
     }
   }
@@ -170,18 +170,8 @@ class MatchController {
     include './app/models/API.php';
     $API = new API();
     echo '<pre style="font-size:12px">';
-    print_r($match->playing_player);
+    print_r(!empty($player_2['cards'][4]->id) && $player_2['cards'][4]->id == 0);
     echo '</pre>';
-    echo '<pre style="font-size:12px">';
-    print_r($_SESSION['user-id']);
-    echo '</pre>';
-    echo '<pre style="font-size:12px">';
-    echo ':';
-    print_r(!isset($_POST['hand'."0"]));
-    echo '</pre>';
-    // echo '<pre style="font-size:12px">';
-    // print_r($player_1['cards'][0]->id);
-    // echo '</pre>';
     include './app/views/partials/header.php';
     include './app/views/match.php';
   }
