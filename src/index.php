@@ -29,6 +29,9 @@ function call($controller) {
     case 'collection':
       $controller = new CollectionController();
       break;
+    case 'rules':
+      $controller = new RulesController();
+      break;
     case 'match':
       $match_id = explode('-', $_GET['q'])[1];
       $controller = new MatchController($match_id);
@@ -54,6 +57,9 @@ switch($page) {
     break;
   case 'leaderboard':
     call('leaderboard');
+    break;
+  case 'rules':
+    call('rules');
     break;
   case 'collection':
   isset($_SESSION['username']) ? call('collection') : header('Location: /sign-in');
