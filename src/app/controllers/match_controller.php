@@ -26,9 +26,36 @@ class MatchController {
       'mana' => $match->player_1_mana,
       'health' => $match->player_1_health,
       'deck' => $this->Db->get_deck($player_1_id),
-      'cards_position' => array(),
-      'cards_defense' => array()
+      'cards' => array(),
     );
+    foreach ($this->Db->get_hand($match->id, $match->round, $player_1_id) as $card) {
+      switch ($card->position) {
+        case 0:
+          array_push($player_1['cards'], $card);
+          break;
+        case 1:
+          array_push($player_1['cards'], $card);
+          break;
+        case 2:
+          array_push($player_1['cards'], $card);
+          break;
+        case 3:
+          array_push($player_1['cards'], $card);
+          break;
+        case 4:
+          array_push($player_1['cards'], $card);
+          break;
+        case 5:
+          array_push($player_1['cards'], $card);
+          break;
+        case 6:
+          array_push($player_1['cards'], $card);
+          break;
+        case 7:
+          array_push($player_1['cards'], $card);
+          break;
+      }
+    }
 
     $player_2_id = $_SESSION['user-id'] == $match->player_1 ? $match->player_2 : $match->player_1;
     $player_2 = array(
@@ -36,14 +63,41 @@ class MatchController {
       'mana' => $match->player_2_mana,
       'health' => $match->player_2_health,
       'deck' => $this->Db->get_deck($player_2_id),
-      'cards_position' => array(),
-      'cards_defense' => array()
+      'cards' => array(),
     );
+    foreach ($this->Db->get_hand($match->id, $match->round, $player_2_id) as $card) {
+      switch ($card->position) {
+        case 0:
+          array_push($player_2['cards'], $card);
+          break;
+        case 1:
+          array_push($player_2['cards'], $card);
+          break;
+        case 2:
+          array_push($player_2['cards'], $card);
+          break;
+        case 3:
+          array_push($player_2['cards'], $card);
+          break;
+        case 4:
+          array_push($player_2['cards'], $card);
+          break;
+        case 5:
+          array_push($player_2['cards'], $card);
+          break;
+        case 6:
+          array_push($player_2['cards'], $card);
+          break;
+        case 7:
+          array_push($player_2['cards'], $card);
+          break;
+      }
+    }
 
-    $this->disp($player_1, $player_2);
+    $this->disp($match, $player_1, $player_2);
   }
 
-  function disp($player_1, $player_2) {
+  function disp($match, $player_1, $player_2) {
     include './app/views/partials/header.php';
     include './app/views/match.php';
   }

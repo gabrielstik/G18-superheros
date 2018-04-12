@@ -25,6 +25,11 @@ class Db {
     $user = $query->fetch();
     return !empty($user->alias) ? $user->alias : false;
   }
+  public function get_username($id) {
+    $query = $this->pdo->query("SELECT * FROM users WHERE id = '$id'");
+    $user = $query->fetch();
+    return !empty($user->username) ? $user->username : false;
+  }
   public function get_money($id) {
     $query = $this->pdo->query("SELECT * FROM users WHERE id = '$id'");
     $user = $query->fetch();
@@ -96,5 +101,19 @@ class Db {
     $money = $this->get_money($user_id) - $amount;
     $query = $this->pdo->prepare("UPDATE users SET money = $money WHERE id = $user_id");
     $match = $query->execute();
+  }
+  public function create_match($player_1, $player_2) {
+    $exec = $this->pdo->prepare("INSERT INTO matches (player_1, player_2, playing_player) VALUES ('$player_1', '$player_2', '$player_2')");
+    $exec->execute();
+  }
+  public function check_match($id_1, $id_2) {
+    $query = $this->pdo->query("SELECT * FROM matches WHERE (player_2 = '$id_2' AND player_1 = '$id_1') OR (player_1 = '$id_2' AND player_2 = '$id_1')");
+    $user = $query->fetch();
+    return empty($user) ? true : false;
+  }
+  public function get_hand($match, $round, $player) {
+    $query = $this->pdo->query("SELECT * FROM hands WHERE related_match = $match AND related_round = $round AND related_player = $player");
+    $hand = $query->fetchAll();
+    return $hand;
   }
 }

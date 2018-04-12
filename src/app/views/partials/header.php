@@ -36,11 +36,6 @@
       <li class="header--nav--item">
         <a href="/leaderboard" title="">Classement</a>
       </li>
-      <? if (isset($_SESSION['username'])) { ?>
-      <li class="header--nav--item">
-        <a href="/tournament" title="">Tournois</a>
-      </li>
-      <? } ?>
     </ul>
   </nav>
   <div class="header--account">
