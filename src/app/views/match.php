@@ -156,7 +156,7 @@
             $hero = $API->get_hero($player_2['cards'][0]->hero_id) ?>
               <div class="card" data-id="<?= $player_2['cards'][0]->hero_id ?>" style="z-index: 1;">
                 <div class="cardFront" style="transform: scale(1);">
-                    <div class="name"><?= $hero->name ?></div>
+                    <div class="name"><?= $hero->name ?></div> <!-- ajouter l'image 246 -->
                     <img img="" draggable="false" src="<?= $API->get_image($player_2['cards'][0]->hero_id) ?>" class="card__image" alt="#">
                     <div class="cardStats">
                         <div data-attack="<?= $hero->powerstats->strength ?>" class="attack"><?= $hero->powerstats->strength ?></div>
@@ -250,7 +250,7 @@
         </div>
     </div>
 </div>
-<form action="" method="">
+<form action="/match-<?= $match->id ?>" method="post">
     <input type="hidden" name="life" value="">
     <input type="hidden" name="slot0" value="">
     <input type="hidden" name="slot1" value="">
@@ -272,7 +272,11 @@
     <br><br>
     <button type="submit" name="sendNewDatas">Envoyer</button>
 </form>
+<!-- ajouter les avatars ennemy infos 297 -->
+<!-- ajouter les avatars ally infos 332 -->
+<!-- virer vie et mettre hors du board -->
 <br>
 <br>
 <br>
 <script src="./assets/js/app.js">Envoyer</script>
+<!-- ajouter le script parallax -->

@@ -5,6 +5,13 @@ class MatchController {
   function __construct($match_id) {
     include './app/models/Db.php';
     $this->Db = new Db();
+
+    $this->match_id = $match_id;
+
+    if (isset($_POST['sendNewDatas'])) {
+      $this->update_data();
+    }
+
     $players = $this->Db->get_playing_players($match_id);
     if ($players != false) {
       $user_playing = false;
@@ -15,8 +22,6 @@ class MatchController {
       else header('Location: /404');
     }
     else header('Location: /404');
-
-    if (isset($_POST['sendNewDatas']))
   }
 
   function get_data($match_id) {
@@ -129,9 +134,54 @@ class MatchController {
     $this->disp($match, $player_1, $player_2);
   }
 
+  function update_data() {
+    $new_datas = array(
+      'health' => $_POST['life'],
+      'card_0_id' => $_POST['slot0'],
+      'card_1_id' => $_POST['slot1'],
+      'card_2_id' => $_POST['slot2'],
+      'card_3_id' => $_POST['slot3'],
+      'card_4_id' => $_POST['slot4'],
+      'card_0_id_defense' => $_POST['cardDefence0'],
+      'card_1_id_defense' => $_POST['cardDefence1'],
+      'card_2_id_defense' => $_POST['cardDefence2'],
+      'card_3_id_defense' => $_POST['cardDefence3'],
+      'card_4_id_defense' => $_POST['cardDefence4'],
+      'card_5_id' => $_POST['hand0'],
+      'card_6_id' => $_POST['hand1'],
+      'card_7_id' => $_POST['hand2'],
+      'card_8_id' => $_POST['hand3'],
+      'card_9_id' => $_POST['hand4'],
+      'card_10_id' => $_POST['hand5'],
+      'card_11_id' => $_POST['hand6'],
+    );
+
+    $match = $this->Db->get_match($this->match_id);
+    if ($match->playing_player == $_SESSION['user-id']) {
+      for ($i = 0; $i < 11; $i++) {
+        $this->Db->update_hand($match->id, $match->round+1, $match->playing_player, $new_datas['card_'."$i".'_id'], $i);
+      }
+      $this->Db->delete_null_cards();
+      // $this->Db->update_match($this->match_id, $match, $new_datas['health']);
+    }
+  }
+
   function disp($match, $player_1, $player_2) {
     include './app/models/API.php';
     $API = new API();
+    echo '<pre style="font-size:12px">';
+    print_r($match->playing_player);
+    echo '</pre>';
+    echo '<pre style="font-size:12px">';
+    print_r($_SESSION['user-id']);
+    echo '</pre>';
+    echo '<pre style="font-size:12px">';
+    echo ':';
+    print_r(!isset($_POST['hand'."0"]));
+    echo '</pre>';
+    // echo '<pre style="font-size:12px">';
+    // print_r($player_1['cards'][0]->id);
+    // echo '</pre>';
     include './app/views/partials/header.php';
     include './app/views/match.php';
   }

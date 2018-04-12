@@ -10,6 +10,8 @@ const energyLeft = document.querySelector(".energyLeft")
 const energyTotal = document.querySelector(".energyTotal")
 const allyLife = document.querySelector(".allyBoard .life")
 const ennemyLife = document.querySelector(".ennemyBoard .life")
+// const allyLife = document.querySelector(".ally_info .inGameLife")
+// const allyLife = document.querySelector(".ennemy_info .inGameLife")
 const deck = document.querySelector(".deck")
 
 let speeder = 0

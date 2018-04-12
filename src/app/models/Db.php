@@ -116,4 +116,20 @@ class Db {
     $hand = $query->fetchAll();
     return $hand;
   }
+
+
+  public function update_hand($match_id, $round, $player, $hand, $position) {
+    $exec = $this->pdo->prepare("INSERT INTO hands (related_match, related_round, related_player, hero_id, position) VALUES ('$match_id', '$round', '$player', '$hand', '$position')");
+    $exec->execute();
+  }
+  public function update_match($match_id, $match, $health) {
+    $playing = $match->playing_player == $match->player_1 ? $match->player_2 : $match->player_1;
+    $health_player = $match->playing_player == $match->player_1 ? 'player_1_health' : 'player_2_health';
+    $round = $match->round++;
+    $query = $this->pdo->prepare("UPDATE matches SET round = '$round', playing_player = '$playing', $health_player = $health  WHERE id = $match_id");
+    $update = $query->execute();
+  }
+  public function delete_null_cards() {
+    $exec = $this->pdo->exec("DELETE FROM hands WHERE hero_id = 0");
+  }
 }
