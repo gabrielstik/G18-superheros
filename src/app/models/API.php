@@ -29,4 +29,9 @@ class API {
     $data = $this->get('http://superheroapi.com/api/'.SUPERHERO_API_KEY.'/'.$id);
     return $data;
   }
+
+  public function get_image($id) {
+    $data = $this->get('http://superheroapi.com/api/'.SUPERHERO_API_KEY.'/'.$id.'/image');
+    return str_replace('http://', 'https://', $data->url);
+  }
 }

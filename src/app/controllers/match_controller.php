@@ -54,6 +54,21 @@ class MatchController {
         case 7:
           array_push($player_1['cards'], $card);
           break;
+        case 8:
+          array_push($player_1['cards'], $card);
+          break;
+        case 9:
+          array_push($player_1['cards'], $card);
+          break;
+        case 10:
+          array_push($player_1['cards'], $card);
+          break;
+        case 11:
+          array_push($player_1['cards'], $card);
+          break;
+        default:
+          array_push($player_1['cards'], false);
+          break;
       }
     }
 
@@ -91,6 +106,21 @@ class MatchController {
         case 7:
           array_push($player_2['cards'], $card);
           break;
+        case 8:
+          array_push($player_2['cards'], $card);
+          break;
+        case 9:
+          array_push($player_2['cards'], $card);
+          break;
+        case 10:
+          array_push($player_2['cards'], $card);
+          break;
+        case 11:
+          array_push($player_2['cards'], $card);
+          break;
+        default:
+          array_push($player_2['cards'], false);
+          break;
       }
     }
 
@@ -98,6 +128,11 @@ class MatchController {
   }
 
   function disp($match, $player_1, $player_2) {
+    include './app/models/API.php';
+    $API = new API();
+    echo '<pre style="font-size:12px">';
+    print_r($player_1['cards']);
+    echo '</pre>';
     include './app/views/partials/header.php';
     include './app/views/match.php';
   }
