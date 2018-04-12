@@ -7,25 +7,16 @@
 
         <!--    CSS    -->
         <link href="../../Assets/Styles/style.css" media="screen and (min-width:600px)" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Marvel" rel="stylesheet">
 
 
         <!--   Icons    -->
-        <link rel="apple-touch-icon" sizes="57x57" href="../../Assets/Ressources/favicon/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="../../Assets/Ressources/favicon/apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="../../Assets/Ressources/favicon/apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="../../Assets/Ressources/favicon/apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="../../Assets/Ressources/favicon/apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="../../Assets/Ressources/favicon/apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="../../Assets/Ressources/favicon/apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="../../Assets/Ressources/favicon/apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="../../Assets/Ressources/favicon/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="../../Assets/Ressources/favicon/android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="../../Assets/Ressources/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="../../Assets/Ressources/favicon/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../Assets/Ressources/favicon/favicon-16x16.png">
-        <link rel="manifest" href="../../Assets/Ressources/favicon/manifest.json">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../Assets/Ressources/favicon_package_v0.16-1/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../Assets/Ressources/favicon_package_v0.16-1/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../Assets/Ressources/favicon_package_v0.16-1/favicon-16x16.png">
+        <link rel="manifest" href="../../Assets/Ressources/favicon_package_v0.16-1/site.webmanifest">
+        <link rel="mask-icon" href="../../Assets/Ressources/favicon_package_v0.16-1/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="../../Assets/Ressources/favicon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
 
     </head>
@@ -47,7 +38,8 @@
                 </ul>
             </nav>
 
-            <a href="connexion.html" target="_blank" id="profil">Caroline Cholley</a>
+            <a href="connexion.html" target="_blank" id="connexion">Connexion</a>
+            <a href="profil.html" target="_blank" id="profil">Caroline Cholley</a>
 
         </div>
 
@@ -56,27 +48,45 @@
 
 
         <div class="connexion">
-            <H1>Se connecter</H1>
+            <div class="connexionform">
+            <H1>Connect</H1>
 
             <form method="POST" action="">
-
+                <h4 class="formtitle">Identifier</h4>
                 <input type="text" name="identifier" class="identifier" placeholder="ex: Thanos2998" maxlength="20">
+                
+                <h4 class="formtitle">Password</h4>
                 <input type="password" name="password" class="password">
-                <button type="submit" class="task_button" name="submit">Connexion</button>
+                <button type="submit" class="connexion_button" name="submit">Connexion</button>
+            
+            <div class="or">
+            <div class="line"></div>
+                <div>OR</div>
+            <div class="line"></div></div>
+            
+            <div><a type="submit" class="fb_button" name="submit">Connect with Facebook</a></div>
             </form>
+            
+            <H1>Create a new account</H1>
+            
+            <form method="POST" action="">
+
+               <h4 class="formtitle">Identifier</h4>
+                <input type="text" name="identifier" class="identifier" placeholder="ex: Thanos2998" maxlength="20">
+                
+                <h4 class="formtitle">Mail</h4>
+                <input type="text" name="mail" class="mail" placeholder="ex: Thanos2998@example.com" maxlength="100">
+                
+                <h4 class="formtitle">Password</h4>
+                <input type="password" name="password" class="password">
+                <button type="submit" class="connexion_button" name="submit">Create</button>
+            </form>
+            
+            </div>
 
         </div>
 
-        <div id="imgrank">
-            <img src="../../Assets/Ressources/Bois.png"  alt="card" class="imgrank"/>
-            <img src="../../Assets/Ressources/Bronze.png"  alt="card" class="imgrank"/>
-            <img src="../../Assets/Ressources/Argent.png"  alt="card" class="imgrank"/>
-            <img src="../../Assets/Ressources/Or.png"  alt="card" class="imgrank"/>
-            <img src="../../Assets/Ressources/Platine.png"  alt="card" class="imgrank"/>
-            <img src="../../Assets/Ressources/Diamant.png"  alt="card" class="imgrank"/>
 
-
-        </div>
 
 
         <footer >

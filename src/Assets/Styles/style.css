@@ -48,8 +48,6 @@ body{
     display: flex;
     justify-content: space-around;
     z-index: 2;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
     text-align: center;
 }
 
@@ -84,7 +82,7 @@ nav ul li a{
 
 }
 
-#profil
+#connexion
 {
     text-decoration: underline;
     font-family: "marvel";
@@ -94,6 +92,12 @@ nav ul li a{
     padding-left: 20px;
     padding-right: 20px;
 }
+
+#profil
+{
+    display: none;
+}
+
 
 .homepage
 {
@@ -250,16 +254,12 @@ header{
     z-index: 1;
 }
 
-.spidermanimg
-{
-    width: 25%;
-}
 
 #section2
 {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 15%;
     padding: 0% 10% 0% 10%;
 }
 
@@ -309,6 +309,47 @@ h2
     width : 100%;
 
 }
+
+.searchbar
+{
+    float: right;
+    position: absolute;
+    right: 4%;
+    width: 40%;
+    
+}
+
+.search
+{
+    width: 60%;
+    height: 40px;
+    margin-left: 5%;
+    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(31, 31, 31, 0.8);
+    border: 2px solid rgb(31, 31, 31);
+    font-size: 14px;
+    border-radius: 2px;
+    color: #bfbfbf;
+    top: 10em;
+}
+
+.search::placeholder
+{
+    color: #F2F2F2;
+}
+
+.search_btn
+{
+    width: 10%;
+    height: 40px;
+    background-color: #C23C3C;
+    border: transparent;
+    font-size: 14px;
+    color: #F2F2F2;
+    top: 10em;
+    border-radius: 2px;
+}
+
 
 .rank table
 {
@@ -369,6 +410,7 @@ tr:nth-child(even)
     color: #F2F2F2;
 }
 
+
 .first
 {
 
@@ -395,65 +437,70 @@ tr:nth-child(even)
     font-size: 1.2em; 
 }
 
+.rules h2
+{
+    font-family: 'marvel';
+    font-size: 2.5em;
+    font-weight: lighter;
+    margin-left: 10%;
+    color: #FFF1C7;
+
+}
+
 .rules p, .rules ul
 {
     padding: 0% 6%;
 }
 
-.rules .imp_txt
+.rules li 
 {
+    margin-bottom: 40px;
+}
+
+.rules .imp_txt {
     font-size: 1.5em;
     font-weight: lighter;
     padding-top: 3%;
 }
 
-.rules p span
-{
+.rules p span {
     font-weight: bolder;
 }
 
-.power
-{
+.power {
     font-size: 1.2em;
     text-decoration: underline;
+    color: #E4102C;
 }
 
-.pvcont
-{
+.pvcont {
     display: flex;
     justify-content: space-between;
     padding: 2% 0%;
-
 }
 
-.pvcont ul
-{
+.pvcont ul {
     width: 50%;
 }
 
-.pvcont .imgcard
-{
+.pvcont .imgcard {
     width: 30%;
 }
 
-.pvcont .imgcard .card
-{
+.pvcont .imgcard .card {
     width: 40%;
 }
 
-#imgrank
-{
-    display: flex;
-    margin-top: 3%;
+#imgrank {
+    width: 1000px;
+    margin: 0 auto;
 }
 
-.imgrank
-{
-    width: 16%;
+.imgrank {
+    width: 15%;
     height: 50%;
+    margin-top: 8%;
 }
-
-
 
 /* connexion.html */
 
@@ -461,14 +508,226 @@ tr:nth-child(even)
 {
     background-image: url(../Ressources/marvel.png);
     background-repeat: no-repeat;
-    background-size: contain;
-    position: relative;
-    top: 30%;
-    padding: 18% 0%;
+    background-size: cover;
+    top: 10%;
+    padding: 10% 0%;
     width : 100%;
     font-size: 1.2em; 
 }
 
+.connexionform
+{
+    width: 35%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #1A1A1A;
+    box-shadow: 1px 1px 4px black;
+}
+
+.connexionform h1
+{
+    font-weight: lighter;
+    padding-top: 2%;
+    padding-bottom: 4%;
+    border-bottom: 1px solid white;
+}
+
+form
+{
+    width: 100%;
+    margin: 30px auto;
+    border-radius: 2px;
+}
+
+.identifier
+{
+    width: 75%;
+    height: 18px;
+    padding: 10px;
+    margin-bottom: 5%;
+    
+}
+
+.connexion_button
+{
+    color: #F2F2F2;
+    background-color: #E4102C;
+    font-size: 1em;
+    border-radius: 2px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    margin-bottom: 5%;
+}
+
+.fb_button
+{
+    background-color: #4868ad;
+    font-size: 1em;
+    border-radius: 2px;
+    padding: 5px 20px;
+    margin-right: 10px;
+    margin-bottom: 15%;
+}
+
+.password
+{
+    width: 75%;
+    height: 18px;
+    padding: 10px;
+    margin-bottom: 5%;
+}
+
+.mail
+{
+    width: 75%;
+    height: 18px;
+    padding: 10px;
+    margin-bottom: 5%;
+}
+
+.or
+{
+    display: flex;
+    vertical-align: bottom;
+    margin-bottom: 5%;
+}
+
+.line
+{
+    border-top: 1px solid white;
+    width : 50%;
+    margin:2% 4% 5% 4%;
+}
+
+
+/* Card.html */
+
+#card {
+  position: relative;
+  overflow: hidden;
+  height: 128px;
+  width: 91px;
+  background: white;
+  border-radius: 10px;
+  color: black;
+}
+
+.card_rarity { 
+  position: absolute;
+  overflow: hidden;
+  height: 100%;
+  transform: scaleX(1.008);
+}
+
+.name {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 7px;
+  top: 78px;
+  text-align: center;
+}
+
+.card__image {
+  will-change: transform;
+  position: absolute;
+  height: 200px;
+}
+
+.cardStats {
+  position: absolute;
+  font-size: 7px;
+  display: flex;
+  top: 114px;
+  margin-left: 9px;
+}
+
+.cardStats .defence,.speed,.inteligence{
+  margin-left: 14.5px;
+}
+
+
+/* Profil.html */
+
+
+.profile {
+    width: 80%;
+    margin: 10% auto;
+    
+    
+}
+
+.profile span {
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #FFF1C7;
+}
+
+.profileStatus {
+    position: absolute;
+    width: 400px;
+    margin-top: 50px;
+}
+
+.profilePic {
+    width: 150px;
+    height: 150px;
+    background: url(https://static.comicvine.com/uploads/scale_small/8/80111/5766160-actioncomics976-gary-frank.jpg);   /* récupérer la photo de profile en php */
+    background-size: 100%;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+.profileInfos {
+    margin-top: 50px;
+    font-size: 20px;
+    margin-left: 80px;
+}
+
+.profileInfos p {
+    margin-bottom: 40px;
+}
+
+.rankInfos {
+    width: 430px;
+    height: 400px;
+    float: right;
+    margin-top: 110px;
+}
+
+.playerGrade img {
+    width: 68px;
+    display: inline;
+}
+
+.wood, .bronze, .gold, .platinium, .diamond {
+    opacity : 0.4;
+}
+
+.rankName {
+    margin-top: 100px;
+}
+
+.rankName p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.menu1
+{
+    width: 100%;
+    height: 105px;
+    top:0;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    z-index: 2;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    text-align: center;
+}
 
 
 
