@@ -130,9 +130,6 @@ class MatchController {
   function disp($match, $player_1, $player_2) {
     include './app/models/API.php';
     $API = new API();
-    echo '<pre style="font-size:12px">';
-    print_r($player_1['cards']);
-    echo '</pre>';
     include './app/views/partials/header.php';
     include './app/views/match.php';
   }

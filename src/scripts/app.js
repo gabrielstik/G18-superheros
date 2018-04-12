@@ -12,6 +12,8 @@ const allyLife = document.querySelector(".allyBoard .life")
 const ennemyLife = document.querySelector(".ennemyBoard .life")
 const deck = document.querySelector(".deck")
 
+let speeder = 0
+
 /////////// query selector forms ////////
 const formLife = document.querySelector("input[name='life']")
 const formSlot0 = document.querySelector("input[name='slot0']")
@@ -177,7 +179,7 @@ const endingTurn = ()=>{
     const ennemySpeed = calculateSpeedOfTheTeam(ennemyFieldSlots)
     
     //we calculate who's faster
-    const speeder = calculateSpeeder(allySpeed, ennemySpeed)
+    speeder = calculateSpeeder(allySpeed, ennemySpeed)
     
     //put the stats of each board in an array (useless)
     let statsOfAllyField = calculateStatsOfFields(allyFieldSlots)
