@@ -269,8 +269,19 @@ header{
     font-size: 2.5em;
     text-align: center;
     width: 70%;
-
 }
+
+#section2 p span a 
+{
+    color: #F2F2F2;
+}
+
+#section2 p span a:hover
+{
+    color: #F2F2F2;
+    text-decoration-color: #E4102C;
+}
+
 
 
 #section2 .imageG
