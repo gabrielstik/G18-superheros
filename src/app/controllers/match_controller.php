@@ -161,8 +161,7 @@ class MatchController {
       for ($i = 0; $i < 11; $i++) {
         $this->Db->update_hand($match->id, $match->round+1, $match->playing_player, $new_datas['card_'."$i".'_id'], $i);
       }
-      // $this->Db->delete_null_cards();
-      // $this->Db->update_match($this->match_id, $match, $new_datas['health']);
+      $this->Db->update_match($this->match_id, $match, $new_datas['health']);
     }
   }
 

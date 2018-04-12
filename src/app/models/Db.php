@@ -124,12 +124,12 @@ class Db {
   }
   public function update_match($match_id, $match, $health) {
     $playing = $match->playing_player == $match->player_1 ? $match->player_2 : $match->player_1;
+    $not_playing = $match->playing_player == $match->player_1 ? $match->player_1 : $match->player_2;
     $health_player = $match->playing_player == $match->player_1 ? 'player_1_health' : 'player_2_health';
     $round = $match->round + 1;
     $query = $this->pdo->prepare("UPDATE matches SET round = '$round', playing_player = '$playing', $health_player = $health  WHERE id = $match_id");
     $update = $query->execute();
-  }
-  public function delete_null_cards() {
-    $exec = $this->pdo->exec("DELETE FROM hands WHERE hero_id = 0");
+    $query = $this->pdo->prepare("UPDATE hands SET related_round = '$round' WHERE related_match = '$match_id' AND related_player = '$playing'");
+    $update = $query->execute();
   }
 }
