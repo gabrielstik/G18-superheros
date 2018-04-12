@@ -432,31 +432,31 @@ const sendData = () =>{
         formSlot0.value = allyFieldSlots[0].querySelector(".card").dataset.id
     }
     if(allyFieldSlots[1].childElementCount > 0){
-        formSlot0.value = allyFieldSlots[1].querySelector(".card").dataset.id
+        formSlot1.value = allyFieldSlots[1].querySelector(".card").dataset.id
     }
     if(allyFieldSlots[2].childElementCount > 0){
-        formSlot0.value = allyFieldSlots[2].querySelector(".card").dataset.id
+        formSlot2.value = allyFieldSlots[2].querySelector(".card").dataset.id
     }
     if(allyFieldSlots[3].childElementCount > 0){
-        formSlot0.value = allyFieldSlots[3].querySelector(".card").dataset.id
+        formSlot3.value = allyFieldSlots[3].querySelector(".card").dataset.id
     }
     if(allyFieldSlots[4].childElementCount > 0){
-        formSlot0.value = allyFieldSlots[4].querySelector(".card").dataset.id
+        formSlot4.value = allyFieldSlots[4].querySelector(".card").dataset.id
     }
     if(allyFieldSlots[0].childElementCount > 0){
     formDefence0.value = allyFieldSlots[0].querySelector(".card .cardFront .cardStats .defence").innerHTML
     }
     if(allyFieldSlots[1].childElementCount > 0){
-    formDefence0.value = allyFieldSlots[1].querySelector(".card .cardFront .cardStats .defence").innerHTML
+    formDefence1.value = allyFieldSlots[1].querySelector(".card .cardFront .cardStats .defence").innerHTML
     }
     if(allyFieldSlots[2].childElementCount > 0){
-    formDefence0.value = allyFieldSlots[2].querySelector(".card .cardFront .cardStats .defence").innerHTML
+    formDefence2.value = allyFieldSlots[2].querySelector(".card .cardFront .cardStats .defence").innerHTML
     }
     if(allyFieldSlots[3].childElementCount > 0){
-    formDefence0.value = allyFieldSlots[3].querySelector(".card .cardFront .cardStats .defence").innerHTML
+    formDefence3.value = allyFieldSlots[3].querySelector(".card .cardFront .cardStats .defence").innerHTML
     }
     if(allyFieldSlots[4].childElementCount > 0){
-    formDefence0.value = allyFieldSlots[4].querySelector(".card .cardFront .cardStats .defence").innerHTML
+    formDefence4.value = allyFieldSlots[4].querySelector(".card .cardFront .cardStats .defence").innerHTML
     }
     handCards = hand.querySelectorAll(".card")
     if(handCards[0]){

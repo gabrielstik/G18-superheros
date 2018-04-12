@@ -2,65 +2,10 @@
 <div class="match--playing"><?= $match->playing_player ?></div>
 <br>
 <br>
-<div class="player-1">
-  <div class="player-1--alias">
-    Nom :
-    <?= $player_1['alias'] ?>
-  </div>
-  <div class="player-1--health">
-    Santé :
-    <?= $player_1['health'] ?>
-  </div>
-  <div class="player-1--mana">
-    Mana :
-    <?= $player_1['mana'] ?>
-  </div>
-  <div class="player-1--deck">
-    Deck : <? foreach ($player_1['deck'] as $card) { echo $card->card_id.' '; } ?>
-  </div>
-  <div class="player-1--card-0">1 : <?= !empty($player_1['cards'][0]->id) ? $player_1['cards'][0]->id : '' ?></div>
-  <div class="player-1--card-1">2 : <?= !empty($player_1['cards'][1]->id) ? $player_1['cards'][1]->id : '' ?></div>
-  <div class="player-1--card-2">3 : <?= !empty($player_1['cards'][2]->id) ? $player_1['cards'][2]->id : '' ?></div>
-  <div class="player-1--card-3">4 : <?= !empty($player_1['cards'][3]->id) ? $player_1['cards'][3]->id : '' ?></div>
-  <div class="player-1--card-4">5 : <?= !empty($player_1['cards'][4]->id) ? $player_1['cards'][4]->id : '' ?></div>
-  <div class="player-1--card-5">6 : <?= !empty($player_1['cards'][5]->id) ? $player_1['cards'][5]->id : '' ?></div>
-  <div class="player-1--card-6">7 : <?= !empty($player_1['cards'][6]->id) ? $player_1['cards'][6]->id : '' ?></div>
-  <div class="player-1--card-7">8 : <?= !empty($player_1['cards'][7]->id) ? $player_1['cards'][7]->id : '' ?></div>
-  <div class="player-1--card-8">9 : <?= !empty($player_1['cards'][8]->id) ? $player_1['cards'][8]->id : '' ?></div>
-  <div class="player-1--card-9">10 : <?= !empty($player_1['cards'][9]->id) ? $player_1['cards'][9]->id : '' ?></div>
-  <div class="player-1--card-10">11 : <?= !empty($player_1['cards'][10]->id) ? $player_1['cards'][10]->id : '' ?></div>
-  <div class="player-1--card-11">12 : <?= !empty($player_1['cards'][11]->id) ? $player_1['cards'][11]->id : '' ?></div>
+<div class="players">
+<?= $player_1['alias'].' vs '.$player_2['alias'] ?>
 </div>
-<br>
-<br>
-<div class="player-2">
-  <div class="player-2--alias">
-    Nom : <?= $player_2['alias'] ?>
-  </div>
-  <div class="player-2--health">
-    Santé :
-    <?= $player_2['health'] ?>
-  </div>
-  <div class="player-2--mana">
-    Mana :
-    <?= $player_2['mana'] ?>
-  </div>
-  <div class="player-2--deck">
-    Deck : <? foreach ($player_2['deck'] as $card) { echo $card->card_id.' '; } ?>
-  </div>
-  <div class="player-2--card-0">1 : <?= !empty($player_2['cards'][0]->id) ? $player_2['cards'][0]->id : '' ?></div>
-  <div class="player-2--card-1">2 : <?= !empty($player_2['cards'][1]->id) ? $player_2['cards'][1]->id : '' ?></div>
-  <div class="player-2--card-2">3 : <?= !empty($player_2['cards'][2]->id) ? $player_2['cards'][2]->id : '' ?></div>
-  <div class="player-2--card-3">4 : <?= !empty($player_2['cards'][3]->id) ? $player_2['cards'][3]->id : '' ?></div>
-  <div class="player-2--card-4">5 : <?= !empty($player_2['cards'][4]->id) ? $player_2['cards'][4]->id : '' ?></div>
-  <div class="player-2--card-5">6 : <?= !empty($player_2['cards'][5]->id) ? $player_2['cards'][5]->id : '' ?></div>
-  <div class="player-2--card-6">7 : <?= !empty($player_2['cards'][6]->id) ? $player_2['cards'][6]->id : '' ?></div>
-  <div class="player-2--card-7">8 : <?= !empty($player_2['cards'][7]->id) ? $player_2['cards'][7]->id : '' ?></div>
-  <div class="player-2--card-8">9 : <?= !empty($player_2['cards'][8]->id) ? $player_2['cards'][8]->id : '' ?></div>
-  <div class="player-2--card-9">10 : <?= !empty($player_2['cards'][9]->id) ? $player_2['cards'][9]->id : '' ?></div>
-  <div class="player-2--card-10">11 : <?= !empty($player_2['cards'][10]->id) ? $player_2['cards'][10]->id : '' ?></div>
-  <div class="player-2--card-11">12 : <?= !empty($player_2['cards'][11]->id) ? $player_2['cards'][11]->id : '' ?></div>
-</div>
+
 
 
 <div class="boardGame">
@@ -73,11 +18,6 @@
       </div>
         <div class="hand">
         </div>
-        <?
-        echo '<pre style="font-size:12px">';
-        print_r($player_1['deck']);
-        echo '</pre>';
-        ?>
         <div class="deck">
             <? for ($i = 0; $i < sizeof($player_1['deck']); $i++) { ?>
             <? $hero = $API->get_hero($player_1['deck'][$i]->card_id) ?>
@@ -329,5 +269,10 @@
     <input type="hidden" name="hand4" value="">
     <input type="hidden" name="hand5" value="">
     <input type="hidden" name="hand6" value="">
+    <br><br>
+    <button type="submit" name="sendNewDatas">Envoyer</button>
 </form>
-<script src="./assets/js/app.js"></script>
+<br>
+<br>
+<br>
+<script src="./assets/js/app.js">Envoyer</script>

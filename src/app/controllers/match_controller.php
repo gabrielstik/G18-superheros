@@ -15,6 +15,8 @@ class MatchController {
       else header('Location: /404');
     }
     else header('Location: /404');
+
+    if (isset($_POST['sendNewDatas']))
   }
 
   function get_data($match_id) {
