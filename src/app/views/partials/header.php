@@ -1,51 +1,48 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="./assets/css/vendor/reset.min.css">
-  <link rel="stylesheet" href="./assets/css/style.min.css">
-</head>
-<body>
-<header class="header flex flex_between">
-  <div class="header--logo">
-    
-  </div>
-  <nav class="header--nav">
-    <ul class="header--nav--list flex flex_evenly">
-      <li class="header--nav--item">
-        <a href="/home" title="">Accueil</a>
-      </li>
-      <? if (isset($_SESSION['username'])) { ?>
-      <li class="header--nav--item">
-        <a href="/matches" title="">Les parties</a>
-      </li>
-      <? } ?>
-      <? if (isset($_SESSION['username'])) { ?>
-      <li class="header--nav--item">
-        <a href="/collection" title="">Ma collection</a>
-      </li>
-      <? } ?>
-      <? if (isset($_SESSION['username'])) { ?>
-      <li class="header--nav--item">
-        <a href="/shop" title="">Boutique</a>
-      </li>
-      <? } ?>
-      <li class="header--nav--item">
-        <a href="/leaderboard" title="">Classement</a>
-      </li>
-    </ul>
-  </nav>
-  <div class="header--account">
-    <? if (isset($_SESSION['username'])) { ?>
-    <form class="flex flex_between" action="/sign-out" method="post">
-      <div class="header--account--username"><?= $_SESSION['username'] ?></div>
-      <button class="header--account--button" type="submit" name="sign-out">Se déconnecter</button>
-    </form>
-    <? } else { ?>
-    <a href="sign-in" class="header--account--button">Se connecter</a>
-    <? } ?>
-  </div>
-</header>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" content="width=device-width,initial-scale=1,user-scalable=no">
+        <meta name="viewport" content="user-scalable=no">
+        <title>Jarvis game</title>
+
+        <!--    CSS    -->
+        <link href="./assets/css/style.min.css" media="screen and (min-width:600px)" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Marvel" rel="stylesheet">
+
+
+        <!--   Icons    -->
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon_package_v0.16-1/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon_package_v0.16-1/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon_package_v0.16-1/favicon-16x16.png">
+        <link rel="manifest" href="./assets/images/favicon_package_v0.16-1/site.webmanifest">
+        <link rel="mask-icon" href="./assets/images/favicon_package_v0.16-1/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="theme-color" content="#ffffff">
+
+    </head>
+
+    <body>
+
+        <div class="menu">
+
+            <a href="#home" target="_blank" id="home"><img src="./assets/images/jarvis.png"  alt="logo" class="jarvis"/></a>
+
+            <nav>
+                <ul>
+                    <li> <a href="/">HOME</a></li>
+                    <li><a href="/matches">GAME</a></li>
+                    <? if (isset($_SESSION['username'])) { ?>
+                      <li> <a href="/collection">CARDS</a></li>
+                    <? } ?>
+                    <li> <a href="/leaderboard">RANK</a></li>
+                    <? if (isset($_SESSION['username'])) { ?><li><a href="/shop">SHOP</a></li><? } ?>
+                    <li><a href="/rules">RULES</a></li>
+                    <? if (isset($_SESSION['username'])) { ?>
+            <li><a href="/sign-out" id="profil">Se déconnecter</a></li>
+                    <? }
+                    else { ?>
+            <li><a href="/sign-in" id="connexion">Connexion</a></li>
+            <? } ?>
+                </ul>
+            </nav>
+        </div>

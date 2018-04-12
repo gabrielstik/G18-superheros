@@ -1,3 +1,6 @@
+import CursorParallax from './components/CursorParallax'
+new CursorParallax
+
 ////////// query selector ///////
 const cards = document.querySelectorAll(".card")
 const hand = document.querySelector(".allyBoard .hand")

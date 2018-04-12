@@ -1,0 +1,737 @@
+body{
+  padding: 0px;
+  margin: 0px;
+  font-family: "abel";
+  position: relative;
+  background-image: url(../images/background.png);
+  background-size: contain;
+  background-attachment: fixed;
+  color: #F2F2F2 ;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@font-face {
+  font-family: 'Marvel';
+  src: url('marvel.ttf');
+}
+ 
+@font-face {
+  font-family: 'abel';
+  src: url('abel-regular.ttf');
+}
+
+@font-face {
+  font-family: 'georgia';
+  src: url('georgia.ttf');
+}
+
+
+.jarvis
+{
+  width: 93px;
+}
+
+#home
+{
+
+  margin: auto auto;
+}
+
+.menu 
+{
+  width: 100%;
+  height: 105px;
+  position: absolute;
+  top:0;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+  z-index: 100000;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  text-align: center;
+}
+
+nav ul li a:hover
+{
+  padding-top: 8px;
+  border-bottom: 3px solid #E4102C;
+}
+
+nav
+{
+
+  margin: auto auto;
+}
+
+nav ul li
+{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+nav ul li a{
+  text-decoration: none;
+  font-family: "marvel";
+  color: #F2F2F2 ;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 3px solid #F2F2F2;
+
+}
+
+#connexion
+{
+  text-decoration: underline;
+  font-family: "marvel";
+  color: #F2F2F2 ;
+  text-align: center;
+  margin: auto auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+.homepage
+{
+  background-image: url(../images/marvel.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  padding-top: 200px;
+  width : 100%;
+
+}
+
+
+header{
+  width: 100%;
+  height: 100%;
+  margin-bottom: 3%;
+
+}
+
+.marvel
+{
+  width: 100%;
+  margin-bottom: 1%;
+  position: absolute;
+  opacity: 0.8;
+  top: 0px;
+
+}
+
+
+/* Index.html */
+
+.headerlogo
+{
+  width: 20%;
+  z-index: 1;
+  padding-bottom: 5%;
+}
+
+.logo
+{
+  width : 60%;
+}
+
+
+.title{
+  margin: auto auto;
+  position: relative;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  width: 100%;
+  height: 30%;
+  top: 30%;
+  z-index: 3;
+  text-align: center;
+  color: #F2F2F2;
+  font-family: "marvel";
+  font-weight: bold;
+  font-style: oblique;
+
+}
+.title h1
+{
+  font-size: 3.5em;
+}
+
+.play_btn
+{
+  background: linear-gradient(#FFF699, #DDAF68, #371B03);
+  border-radius: 2px;
+  text-decoration: none;
+  color: #F2F2F2;
+  padding: 1% 3%;
+  margin-top: 3%;
+  font-size: 2.5em;
+}
+
+.play_btn:hover
+{
+  background: #770707;
+  border-radius: 2px;
+  text-decoration: none;
+  color: #F2F2F2;
+  padding: 1% 3%;
+  margin-top: 3%;
+  font-size: 2.5em;
+}
+
+#section1
+{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 10%;
+  margin-left: 6%;
+  padding: 10% 0% 0% 6%;
+}
+
+#section1 p
+{
+  margin: auto;
+  width: 60%;
+  font-size: 2.5em;
+  text-align: center;
+  padding-right : 5%;
+}
+
+#section1 span, #section2 span
+{
+  font-size: 0.5em;
+  padding: 0%;
+  font-weight: lighter;
+}
+
+#section1 div
+{
+  width : 90%;
+  margin: 0 auto;
+  box-shadow: 5px 5px 45px #000000; 
+  perspective: 600px;
+  transform-style: preserve-3d;
+}
+
+#section1 div img
+{
+  width: 24%;
+}
+
+.face_card
+{
+  position: relative;
+  z-index: 4;
+}
+
+.right_card1
+{
+  transform: rotateY(-30deg) translateX(-80px);
+  position: relative;
+  z-index: 3;
+}
+
+.right_card2
+{
+  transform: rotateY(-25deg) translateX(-200px);
+  position: relative;
+  z-index: 2;
+}
+
+.right_card3
+{
+  transform: rotateY(-30deg) translateX(-340px);
+  position: relative;
+  z-index: 1;
+}
+
+
+#section2
+{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15%;
+  padding: 0% 10% 0% 10%;
+}
+
+#section2 p
+{
+  margin: auto;
+  font-size: 2.5em;
+  text-align: center;
+  width: 70%;
+
+}
+
+
+#section2 .imageG
+{
+  width : 90%;
+  box-shadow: 5px 5px 45px #000000; 
+
+}
+
+.batmanimg
+{
+  width: 25%;
+  float: right;
+}
+
+
+
+/* rank.html */
+
+h2
+{
+  font-family: 'marvel';
+  font-size: 2.5em;
+  font-weight: lighter;
+  margin-left: 10%;
+}
+
+.rank
+{
+  background-image: url(../images/marvel.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  top: 30%;
+  padding: 18% 0%;
+  width : 100%;
+
+}
+
+.searchbar
+{
+  float: right;
+  position: absolute;
+  right: 4%;
+  width: 40%;
+  
+}
+
+.search
+{
+  width: 60%;
+  height: 40px;
+  margin-left: 5%;
+  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1);
+  background-color: rgb(31, 31, 31);
+  opacity: 0.8;
+  border: transparent;
+  font-size: 14px;
+  border-radius: 2px;
+  color: #bfbfbf;
+  top: 10em;
+}
+
+.search_btn
+{
+  width: 10%;
+  height: 40px;
+  background-color: #C23C3C;
+  border: transparent;
+  font-size: 14px;
+  color: #bfbfbf;
+  top: 10em;
+  border-radius: 2px;
+}
+
+
+.rank table
+{
+  border: 0.5px solid black;
+  border-collapse: collapse;
+  margin: auto;
+  text-align: center;
+  width: 70%;
+}
+
+.rank table thead
+{
+  background-color: #C23C3C;
+  color: #F2F2F2;
+  font-size: 1.5em;
+  font-family: 'abel';
+}
+
+.rank table tbody
+{
+  background-color: #F2F2F2;
+  color: #0D0D0D;
+}
+
+th, td
+{
+  padding : 1%;
+  border: 0.5px solid #707070;
+  font-weight: lighter;
+}
+
+tr:nth-child(even)
+{
+  background-color: #BAB8B8;
+}
+
+.rankcolumn
+{
+  background-color: #F0D67C;
+  font-size: 1.5em;
+  padding: 0%;
+  font-family: 'copperplate';
+}
+
+#rank
+{
+  padding: 0%;
+}
+
+.grade
+{
+  border: none;
+  font-size: 1.2em;
+  width: 25%;
+  font-family: 'copperplate';
+  padding: 3%;
+  background-color: #1A1A1A;
+  color: #F2F2F2;
+}
+
+
+.first
+{
+
+  border-top: 2px solid black;
+}
+
+.grade_img
+{
+  width: 100%;
+}
+
+
+/* Rules.html */
+
+.rules
+{
+  background-image: url(../images/marvel.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  top: 30%;
+  padding: 18% 0%;
+  width : 100%;
+  font-size: 1.2em; 
+}
+
+.rules h2
+{
+  font-family: 'marvel';
+  font-size: 2.5em;
+  font-weight: lighter;
+  margin-left: 10%;
+  color: #FFF1C7;
+
+}
+
+.rules p, .rules ul
+{
+  padding: 0% 6%;
+}
+
+.rules li 
+{
+  margin-bottom: 40px;
+}
+
+.rules .imp_txt {
+  font-size: 1.5em;
+  font-weight: lighter;
+  padding-top: 3%;
+}
+
+.rules p span {
+  font-weight: bolder;
+}
+
+.power {
+  font-size: 1.2em;
+  text-decoration: underline;
+  color: #E4102C;
+}
+
+.pvcont {
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 0%;
+}
+
+.pvcont ul {
+  width: 50%;
+}
+
+.pvcont .imgcard {
+  width: 30%;
+}
+
+.pvcont .imgcard .card {
+  width: 40%;
+}
+
+#imgrank {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.imgrank {
+  width: 15%;
+  height: 50%;
+  margin-top: 8%;
+}
+
+/* connexion.html */
+
+.connexion
+{
+  background-image: url(../images/marvel.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 100px;
+  padding: 10% 0%;
+  width : 100%;
+  font-size: 1.2em; 
+}
+
+.connexionform
+{
+  width: 35%;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #1A1A1A;
+  box-shadow: 1px 1px 4px black;
+}
+
+.connexionform h1
+{
+  font-weight: lighter;
+  padding-top: 2%;
+  padding-bottom: 4%;
+  border-bottom: 1px solid white;
+}
+
+form
+{
+  width: 100%;
+  margin: 30px auto;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.identifier
+{
+  width: 75%;
+  height: 18px;
+  padding: 10px;
+  
+}
+
+.connexion_button
+{
+  color: #1E1E1E;
+  font-size: 1em;
+  border-radius: 2px;
+  padding: 5px 20px;
+  margin-right: 10px;
+}
+
+.fb_button
+{
+  background-color: #4868ad;
+  font-size: 1em;
+  border-radius: 2px;
+  padding: 5px 20px;
+  margin-right: 10px;
+}
+
+.password
+{
+  width: 75%;
+  height: 18px;
+  padding: 10px;
+}
+
+.mail
+{
+  width: 75%;
+  height: 18px;
+  padding: 10px;
+}
+
+.or
+{
+  display: flex;
+  vertical-align: bottom;
+}
+
+.line
+{
+  border-top: 1px solid white;
+  width : 50%;
+}
+
+
+/* Card.html */
+
+#card {
+position: relative;
+overflow: hidden;
+height: 128px;
+width: 91px;
+background: white;
+border-radius: 10px;
+color: black;
+}
+
+.card_rarity { 
+position: absolute;
+overflow: hidden;
+height: 100%;
+transform: scaleX(1.008);
+}
+
+.name {
+position: relative;
+text-transform: uppercase;
+font-size: 7px;
+top: 78px;
+text-align: center;
+}
+
+.card__image {
+will-change: transform;
+position: absolute;
+height: 200px;
+}
+
+.cardStats {
+position: absolute;
+font-size: 7px;
+display: flex;
+top: 114px;
+margin-left: 9px;
+}
+
+.cardStats .defence,.speed,.inteligence{
+margin-left: 14.5px;
+}
+
+
+/* Profil.html */
+
+
+.profile {
+  width: 80%;
+  margin: 10% auto;
+  
+  
+}
+
+.profile span {
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #FFF1C7;
+}
+
+.profileStatus {
+  position: absolute;
+  width: 400px;
+  margin-top: 50px;
+}
+
+.profilePic {
+  width: 150px;
+  height: 150px;
+  background: url(https://static.comicvine.com/uploads/scale_small/8/80111/5766160-actioncomics976-gary-frank.jpg);   /* récupérer la photo de profile en php */
+  background-size: 100%;
+  border-radius: 100%;
+  margin: 0 auto;
+}
+
+.profileInfos {
+  margin-top: 50px;
+  font-size: 20px;
+  margin-left: 80px;
+}
+
+.profileInfos p {
+  margin-bottom: 40px;
+}
+
+.rankInfos {
+  width: 430px;
+  height: 400px;
+  float: right;
+  margin-top: 110px;
+}
+
+.playerGrade img {
+  width: 68px;
+  display: inline;
+}
+
+.wood, .bronze, .gold, .platinium, .diamond {
+  opacity : 0.4;
+}
+
+.rankName {
+  margin-top: 100px;
+}
+
+.rankName p {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.menu1
+{
+  width: 100%;
+  height: 105px;
+  top:0;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+  z-index: 2;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  text-align: center;
+}
+
+
+
+footer
+{
+  color: #f2F2F2;
+  margin-top: 7%;
+  text-align: center;
+  border-top: 1px solid black;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background-color: #1A1A1A;
+  font-size: 0.8em;
+  clear: right;
+}
+
+

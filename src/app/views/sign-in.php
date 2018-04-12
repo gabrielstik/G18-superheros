@@ -1,4 +1,4 @@
-<form class="form--sign-in" id="sign-in" action="/sign-in" method="post">
+<form class="connexion form--sign-in" id="sign-in" action="/sign-in" method="post">
   <h2 class="form--title">Connexion</h2>
   <div class="form--item">
     <label class="form-text" for="sign-in--username">Identifiant</label>
@@ -12,3 +12,4 @@
     <input class="submit" type="submit" name="sign-in" value="Se connecter">
   </div>
 </form>
+<p style="text-align: center"><a href="/sign-up">S'inscrire</a></p>
