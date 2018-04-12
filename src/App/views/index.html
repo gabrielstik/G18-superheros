@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
     <head>
         <meta charset="utf-8" content="width=device-width,initial-scale=1,user-scalable=no">
         <meta name="viewport" content="user-scalable=no">
@@ -8,7 +8,7 @@
         <!--    CSS    -->
         <link href="../../Assets/Styles/style.css" media="screen and (min-width:600px)" rel="stylesheet">
 
-       
+
         <!--   Icons    -->
         <link rel="apple-touch-icon" sizes="57x57" href="../../Assets/Ressources/favicon/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="../../Assets/Ressources/favicon/apple-icon-60x60.png">
@@ -31,60 +31,75 @@
     </head>
 
     <body>
-        
+
         <div class="menu">
-           
-           <a href="#home" target="_blank" id="home"><img src="../../Assets/Ressources/jarvis.png"  alt="logo" class="jarvis"/></a>
-           
+
+            <a href="#home" target="_blank" id="home"><img src="../../Assets/Ressources/jarvis.png"  alt="logo" class="jarvis"/></a>
+
             <nav>
                 <ul>
                     <li> <a href="#home">HOME</a></li>
                     <li><a href="../views/game.html">GAME</a></li>
-                    <li> <a href="../views/collection.html">COLLECTION</a></li>
+                    <li> <a href="../views/cards.html">CARDS</a></li>
                     <li> <a href="../views/rank.html">RANK</a></li>
                     <li><a href="../views/shop.html">SHOP</a></li>
                     <li><a href="rules.html">RULES</a></li>
                 </ul>
             </nav>
-            
-            <a href="connexion.html" target="_blank" id="profil">Caroline Cholley</a>
+
+            <a href="connexion.html" target="_blank" id="profil">Connexion</a>
 
         </div>
 
-        <header>
-        
-        <img src="../../Assets/Ressources/marvel.png"  alt="marvel" class="marvel"/>
+        <div class="homepage">
+            <header>
+
 
 
                 <div class="title">
-                    <h1>LOREM IPSUM</h1>
-                    <a href="../views/game.html" class="play_btn">START</a>
+                    <div class="headerlogo"><img src="../../Assets/Ressources/jarvis.png"  alt="logo" class="logo"/></div>
+                    <div><a href="../views/game.html" class="play_btn">START</a></div>
                 </div>
-            
-        </header>
 
-<div class="section" id="section1">
-    
-    <p>Collect all your favorite heroes cards <br/>
-    <span>Buy new cards, select your deck, raise your army, prepare to fight and become the master of the game !</span></p>
-    
-     <div><img src="../../Assets/Ressources/image.png"  alt="image" class="image_marvel"/></div>
-    
-    
-</div>
-        <img src="../../Assets/Ressources/spiderman.png"  alt="image" class="spidermanimg"/>
+            </header>
 
-        <div class="section" id="section2">
-    
-     <div><img src="../../Assets/Ressources/image.png"  alt="image" class="image_marvel"/></div>
-     <p>How to play ?<br/>
-     <span>Invite a friend or play against a random player. You will have 8 cards in your deck. Make good use ! Alternately you will play a card, and try to destroy the defenses of your enemy.</span></p>
-    
-    
-</div>
+            <div class="section" id="section1">
+
+                <p class="image index-3 js-cursor-parallax" data-amplitude="0.1">WHAT IS JARVIS ? <br/>
+                    <span>
+                        Do you dream of seeing your favorite heroes compete in unusual fights? Go on an adventure with this card game and develop strategies to win and appear in the leaderboard!<br/>
+                        Superheroes are waiting for you!</span></p>
+
+                <div class="image index-1 js-cursor-parallax" data-amplitude="0.3"><img src="../../Assets/Ressources/legcard.png"  alt="image" class="face_card"/>
+                    <img src="../../Assets/Ressources/epiccard.png"  alt="image" class="right_card1"/>
+                    <img src="../../Assets/Ressources/rarecard.png"  alt="image" class="right_card2"/>
+                    <img src="../../Assets/Ressources/commoncard.png"  alt="image" class="right_card3"/>
+                </div>
+
+
+            </div>
+            <img src="../../Assets/Ressources/spiderman.png"  alt="image" class="spidermanimg"/>
+
+            <div class="section" id="section2">
+
+                <div class="image index-2 js-cursor-parallax" data-amplitude="0.2"><img src="../../Assets/Ressources/imageG.png"  alt="image" class="imageG"/></div>
+                <p class="image index-4 js-cursor-parallax" data-amplitude="0.1">HOW TO PLAY ?<br/>
+                    <span>
+                        JARVIS is a challenge and strategy game. The goal of the game is to reduce the life of your opponent's hero to zero to win the game.
+                        <br/>
+                        It's a multi-player card game, you can play against a random opponent or you can challenge a friend!
+                        <br/>
+                        Discover all the rules of the game</span></p>
+
+            </div>
+
+            <img src="../../Assets/Ressources/batman.png"  alt="image" class="batmanimg"/>
+
+
+        </div>
 
         <footer >
-            
+
 
             <p>© Powered by HETIC Groupe 18.</p>
 
@@ -92,6 +107,7 @@
 
 
 
+        <script src="../../Assets/scripts/CursorParallax.js"></script>
         <script src="../../Assets/scripts/main.js"></script>
 
     </body>
