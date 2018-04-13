@@ -1,75 +1,75 @@
 // HOMEPAGE
 
-class CursorParallax
+export default class CursorParallax
 {
-  constructor()
-  {
-    this.setItems()
-    this.setMouse()
-    this.setRAF()
-  }
-
-  setItems()
-  {
-    const $elements = document.querySelectorAll('.js-cursor-parallax')
-
-    this.items = []
-
-    for(const $element of $elements)
+    constructor()
     {
-      const item = {}
-      item.$element = $element
-      item.offsetX = 0
-      item.offsetY = 0
-      item.amplitude = parseFloat($element.dataset.amplitude)
-
-      this.items.push(item)
+        this.setItems()
+        this.setMouse()
+        this.setRAF()
     }
-  }
-  setMouse()
-  {
-    this.mouse = {}
-    this.mouse.x = 0
-    this.mouse.y = 0
 
-    let windowWidth = window.innerWidth
-    let windowHeight = window.innerHeight
-
-    window.addEventListener('resize', (event) =>
+    setItems()
     {
-      windowWidth = window.innerWidth
-      windowHeight = window.innerHeight
-    })
+        const $elements = document.querySelectorAll('.js-cursor-parallax')
 
-    window.addEventListener('mousemove', (event) =>
+        this.items = []
+
+        for(const $element of $elements)
+        {
+            const item = {}
+            item.$element = $element
+            item.offsetX = 0
+            item.offsetY = 0
+            item.amplitude = parseFloat($element.dataset.amplitude)
+
+            this.items.push(item)
+        }
+    }
+    setMouse()
     {
-      this.mouse.x = event.clientX / windowWidth - 0.5
-      this.mouse.y = event.clientY / windowHeight - 0.5
-    })
-  }
+        this.mouse = {}
+        this.mouse.x = 0
+        this.mouse.y = 0
+
+        let windowWidth = window.innerWidth
+        let windowHeight = window.innerHeight
+
+        window.addEventListener('resize', (event) =>
+        {
+            windowWidth = window.innerWidth
+            windowHeight = window.innerHeight
+        })
+
+        window.addEventListener('mousemove', (event) =>
+        {
+            this.mouse.x = event.clientX / windowWidth - 0.5
+            this.mouse.y = event.clientY / windowHeight - 0.5
+        })
+    }
     
-  setRAF()
-  {
-    const loop = () =>
+    setRAF()
     {
-      window.requestAnimationFrame(loop)
+        const loop = () =>
+        {
+            window.requestAnimationFrame(loop)
             
-      for(const item of this.items)
-      {
-        const offsetX = - this.mouse.x * 100 * item.amplitude
-        const offsetY = - this.mouse.y * 100 * item.amplitude
+            for(const item of this.items)
+            {
+                const offsetX = - this.mouse.x * 100 * item.amplitude
+                const offsetY = - this.mouse.y * 100 * item.amplitude
                 
-        item.offsetX += (offsetX - item.offsetX) * 0.1
-        item.offsetY += (offsetY - item.offsetY) * 0.1
+                item.offsetX += (offsetX - item.offsetX) * 0.1
+                item.offsetY += (offsetY - item.offsetY) * 0.1
                 
-        const roundedOffsetX = Math.round(item.offsetX * 100) / 100
-        const roundedOffsetY = Math.round(item.offsetY * 100) / 100
+                const roundedOffsetX = Math.round(item.offsetX * 100) / 100
+                const roundedOffsetY = Math.round(item.offsetY * 100) / 100
 
-        item.$element.style.transform = `translateX(${offsetX}px) translateY(${offsetY}px)`
-      }
+                item.$element.style.transform = `translateX(${offsetX}px) translateY(${offsetY}px)`
+            }
+        }
+        loop()
     }
-    loop()
-  }
 }
 
 
@@ -77,72 +77,72 @@ class CursorParallax
 
 class CursorParallax1
 {
-  constructor()
-  {
-    this.setItems()
-    this.setMouse()
-    this.setRAF()
-  }
-
-  setItems()
-  {
-    const $elements = document.querySelectorAll('.card__image')
-
-    this.items = []
-
-    for(const $element of $elements)
+    constructor()
     {
-      const item = {}
-      item.$element = $element
-      item.offsetX = 0
-      item.offsetY = 0
-      item.amplitude = parseFloat($element.dataset.amplitude)
-
-      this.items.push(item)
+        this.setItems()
+        this.setMouse()
+        this.setRAF()
     }
-  }
-  setMouse()
-  {
-    this.mouse = {}
-    this.mouse.x = 0
-    this.mouse.y = 0
 
-    let windowWidth = window.innerWidth
-    let windowHeight = window.innerHeight
-
-    window.addEventListener('resize', (event) =>
+    setItems()
     {
-      windowWidth = window.innerWidth
-      windowHeight = window.innerHeight
-    })
+        const $elements = document.querySelectorAll('.card__image')
 
-    window.addEventListener('mousemove', (event) =>
+        this.items = []
+
+        for(const $element of $elements)
+        {
+            const item = {}
+            item.$element = $element
+            item.offsetX = 0
+            item.offsetY = 0
+            item.amplitude = parseFloat($element.dataset.amplitude)
+
+            this.items.push(item)
+        }
+    }
+    setMouse()
     {
-      this.mouse.x = event.clientX / windowWidth - -2
-      this.mouse.y = event.clientY / windowHeight - -2
-    })
-  }
+        this.mouse = {}
+        this.mouse.x = 0
+        this.mouse.y = 0
+
+        let windowWidth = window.innerWidth
+        let windowHeight = window.innerHeight
+
+        window.addEventListener('resize', (event) =>
+        {
+            windowWidth = window.innerWidth
+            windowHeight = window.innerHeight
+        })
+
+        window.addEventListener('mousemove', (event) =>
+        {
+            this.mouse.x = event.clientX / windowWidth - -2
+            this.mouse.y = event.clientY / windowHeight - -2
+        })
+    }
     
-  setRAF()
-  {
-    const loop = () =>
+    setRAF()
     {
-      window.requestAnimationFrame(loop)
+        const loop = () =>
+        {
+            window.requestAnimationFrame(loop)
             
-      for(const item of this.items)
-      {
-        const offsetX = - this.mouse.x * 100 * item.amplitude
-        const offsetY = - this.mouse.y * 100 * item.amplitude
+            for(const item of this.items)
+            {
+                const offsetX = - this.mouse.x * 100 * item.amplitude
+                const offsetY = - this.mouse.y * 100 * item.amplitude
                 
-        item.offsetX += (offsetX - item.offsetX) * 0.1
-        item.offsetY += (offsetY - item.offsetY) * 0.1
+                item.offsetX += (offsetX - item.offsetX) * 0.1
+                item.offsetY += (offsetY - item.offsetY) * 0.1
                 
-        const roundedOffsetX = Math.round(item.offsetX * 100) / 100
-        const roundedOffsetY = Math.round(item.offsetY * 100) / 100
+                const roundedOffsetX = Math.round(item.offsetX * 100) / 100
+                const roundedOffsetY = Math.round(item.offsetY * 100) / 100
 
-        item.$element.style.transform = `translateX(${offsetX}px) translateY(${offsetY}px)`
-      }
+                item.$element.style.transform = `translateX(${offsetX}px) translateY(${offsetY}px)`
+            }
+        }
+        loop()
     }
-    loop()
-  }
 }

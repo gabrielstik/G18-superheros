@@ -10,7 +10,6 @@
   width: 1100px;
   height: 600px;
   position: relative;
-  background-color: brown;
 }
 
 .passTurn{
@@ -46,12 +45,13 @@
   width: 91px;
   height: 128px;
   position: absolute;
-  background-color: bisque;
+  background-color: white;
   transition: transform 0.5s;
 }
 
 .card__image{
-  width: 90%;
+  // width: 90%;
+  height: 100px !important;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);  
@@ -60,6 +60,7 @@
 .cardStats{
   position: absolute;
   bottom: 0px;
+  color: black;
 }
 
 /******** HAND *******/
@@ -72,7 +73,7 @@
   bottom: 2%;
   transform: translateX(-50%);
   display: flex;
-  z-index: 10;
+  z-index: 10000;
 }
 
 
@@ -121,15 +122,21 @@
   width: 91px;
   height: 128px;
   position: absolute;
+  z-index: 1000;
   right: 0px;
   bottom: 100px;
-  background-color: blue;
+  background-color: white;
 }
 
 .allyBoard .deck .card{
   position: absolute;
-  transform: rotateX(180deg);
+  opacity: 0;
+  transform: rotateX(180deg) e(.9);
 
+}
+
+.cardFront {
+  z-index: 100000;
 }
 
 /********Field*******/
@@ -149,7 +156,7 @@
   width: 91px;
   height: 128px; 
   margin-right: 10px; 
-  background-color: blue;
+  border: solid 2px aqua;
 }
 
 
@@ -180,6 +187,10 @@
   transform: translateX(-50%) translateY(-110%);
   display: flex;
 
+}
+
+.ennemyBoard .hand {
+  opacity: 0;
 }
 
 

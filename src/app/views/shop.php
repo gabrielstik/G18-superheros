@@ -1,12 +1,10 @@
-<div class="current-money"><?= $money ?></div>
-<br>
-<br>
-<br>
-<ul>
+<div style="padding-top:150px;font-size:24px;text-align:center" class="money">Argent : <?= $money ?></div>
+<ul style="margin-top:50px;" class="grid">
   <? foreach ($datas as $data) { if (!empty($data->name)) { ?>
   <li>
+    <img style="height: 100px" src="<?= $API->get_image($data->id) ?>" alt="">
     <div class="card--name">
-      Nom : <?= $data->name ?>
+      <?= $data->name ?>
     </div>
     <div class="card--attack">
       Attaque : <?= $data->powerstats->strength ?>

@@ -1,10 +1,4 @@
-<div class="match--round"><?= $match->round ?></div>
-<div class="match--playing"><?= $match->playing_player ?></div>
-<br>
-<br>
-<div class="players">
 <?= $player_1['alias'].' vs '.$player_2['alias'] ?>
-</div>
 
 
 

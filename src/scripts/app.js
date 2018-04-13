@@ -1,4 +1,4 @@
-import CursorParallax from './components/CursorParallax'
+import CursorParallax from './components/cursorParallax'
 new CursorParallax
 
 ////////// query selector ///////
@@ -415,16 +415,16 @@ deck.addEventListener("click",()=>{
 
 cards.forEach(card => {
     card.addEventListener("mouseover",()=>{
-        card.querySelector(".cardFront").style.transform = "scale(2)"
+        // card.querySelector(".cardFront").style.transform = "scale(1)"
+        card.style.zIndex = 100
+        card.parentElement.style.zIndex = 100
+        card.parentElement.parentElement.style.zIndex = 100
+    }) 
+    card.addEventListener("mouseleave",()=>{
+        // card.querySelector(".cardFront").style.transform = "scale(1)"
         card.style.zIndex = 10
         card.parentElement.style.zIndex = 10
         card.parentElement.parentElement.style.zIndex = 10
-    }) 
-    card.addEventListener("mouseleave",()=>{
-        card.querySelector(".cardFront").style.transform = "scale(1)"
-        card.style.zIndex = 1
-        card.parentElement.style.zIndex = 1
-        card.parentElement.parentElement.style.zIndex = 1
     }) 
 })
 

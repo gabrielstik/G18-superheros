@@ -5,6 +5,8 @@ class CollectionController {
   function __construct() {
     include './app/models/Db.php';
     $this->Db = new Db();
+    include './app/models/API.php';
+    $this->API = new API();
 
     if (isset($_POST['add-deck'])) {
       $this->Db->add_deck($_POST['add-deck--id']);
