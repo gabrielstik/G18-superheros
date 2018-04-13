@@ -1,14 +1,11 @@
-<?= $player_1['alias'].' vs '.$player_2['alias'] ?>
-
-
-
 <div class="boardGame">
-  <div class="passTurn">Pass turn</div>
+  <button class="passTurn">Confirm cards position</button>
   <div class="allyBoard">
-      <div class="life"><?= $player_1['health'] ?></div>
+      <div class="life"><i class="fa fa-heart" aria-hidden="true"></i><?= $player_1['health'] ?></div>
       <div class="energy">
-          <div class="energyLeft"><?= $player_1['mana'] ?></div>
-          <div class="energyTotal" data-energy="5">/5</div>
+      <i class="fa fa-bolt" aria-hidden="true"></i>
+          <span class="energyLeft"> <?= $player_1['mana'] ?></span>
+          <!-- <div class="energyTotal" data-energy="5">/5</div> -->
       </div>
         <div class="hand">
         </div>
@@ -129,7 +126,7 @@
         </div>
     </div>
     <div class="ennemyBoard">
-        <div class="life"><?= $player_1['health'] ?></div>
+        <div class="life"><i class="fa fa-heart" aria-hidden="true"></i><?= $player_1['health'] ?></div>
         <div class="hand">
             <div class="card" data-id="1">
                 <div class="cardFront">
@@ -265,7 +262,7 @@
     <input type="hidden" name="hand5" value="">
     <input type="hidden" name="hand6" value="">
     <br><br>
-    <button type="submit" name="sendNewDatas">Envoyer</button>
+    <button class="endround" type="submit" name="sendNewDatas">End round</button>
 </form>
 <!-- ajouter les avatars ennemy infos 297 -->
 <!-- ajouter les avatars ally infos 332 -->

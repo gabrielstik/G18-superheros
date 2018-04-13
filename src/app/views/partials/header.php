@@ -8,6 +8,7 @@
         <!--    CSS    -->
         <link href="./assets/css/style.min.css" media="screen and (min-width:600px)" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Marvel" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
         <!--   Icons    -->
